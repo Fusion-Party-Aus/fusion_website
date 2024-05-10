@@ -24,6 +24,20 @@ h1, h2, h3, h4, h5, p {
 .massive {
     font-size:2.5rem;
 }
+/* These were taken from Bootstrap 5 utilities */
+.fs-1 {
+    font-size: calc(1.375rem + 1.5vw) !important;
+}
+
+@media (min-width: 1200px) {
+    .fs-1 {
+        font-size: 2.5rem !important;
+    }
+}
+
+.fs-5 {
+    font-size: 1.25rem !important;
+}
 
 @media (min-width: 768px) {
     .massive {
@@ -163,6 +177,9 @@ nav.navbar {
     border-color 3s ease,
     box-shadow 3s ease;
 }
+.nav-link {
+    color: rgba(0,0,0,0.65) !important;
+}
 .hide-nav-bar {
     transform: translateY(-120%);
 }
@@ -251,6 +268,7 @@ footer ul a:hover {
 .icons svg:hover {
     cursor: pointer;
     animation: neon-pink-glow 15s ease-in-out infinite alternate;
+    color: gray;
 }
 
 .icons li {
@@ -569,6 +587,11 @@ button.bg-aquamarine:hover {
     background-color: #46d3e0;
 }
 
+button.bg-opal:hover {
+  /* This is the background-color for btn-info in Bootstrap 5 */
+  background-color: #31d2f2 !important;
+}
+
 .h-pink::after {
     background-color: var(--fusion-pink);
 }
@@ -626,6 +649,15 @@ button.bg-purple, button.bg-purple:hover {
   background-position: center; /* Center the background image */
   background-attachment: fixed;  /* Fixed to the viewport rather than the HTML page, so it doesn't look stretched. */
 }
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+input.form-control {
+    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+}
+
 
 @keyframes jumbo {
     from {
