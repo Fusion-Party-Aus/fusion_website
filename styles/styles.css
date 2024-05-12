@@ -104,6 +104,10 @@ h1, h2, h3, h4, h5, p {
     max-width: inherit;
 }
 
+ol, ul {
+    padding-left: 2rem;
+}
+
 
 @media (max-width: 767px) {
     .rrr_logo {
