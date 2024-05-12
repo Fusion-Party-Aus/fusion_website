@@ -175,6 +175,8 @@ nav {
     border-radius: 2px;
 }
 nav.navbar {
+    padding-left: 0;
+    padding-right: 0;
     position: fixed;
     transition: transform 0.8s .1s ease,
     background-color 3s ease,
