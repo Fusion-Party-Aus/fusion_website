@@ -315,6 +315,7 @@ header {
 
 .header-container {
     position: relative;
+    min-height: 140px;
 }
 
 .header-container img {
