@@ -1,7 +1,7 @@
 const canvas = document.getElementById("climate-canvas");
 const ctx = canvas.getContext("2d");
 const period = 70_000;
-const population = 70;
+const population = 120;
 let canvasWidth;
 // Width of streaks (dots)
 const minWidth = 2;  // pixels

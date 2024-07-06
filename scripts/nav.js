@@ -1,19 +1,14 @@
 // https://codepen.io/andiio/pen/ARxgGb
 // Notice that this depends on jQuery.
 
-function remToPx(rem) {
-  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-  return rem * rootFontSize;
-}
-
 $(function () {
     // https://stackoverflow.com/a/19561886/1495729
     //  This is needed for mobile.
     $('.dropdown-toggle').hover(function () {
-            $(this).addClass('open');  // Notice that these are not Popper classes
+            $(this).addClass('hover');  // Notice that these are not Popper classes
         },
         function () {
-            $(this).removeClass('open');
+            $(this).removeClass('hover');
         });
 });
 
@@ -91,7 +86,24 @@ $(document).ready(
                 // For position.
                 dropdownUnorderedList.setAttribute('data-bs-popper', 'static');
             }
+            const hideDropdown = () => {
+                toggle.classList.remove('show');
+                dropdownUnorderedList.classList.remove('show');
+                dropdownUnorderedList.removeAttribute('data-bs-popper');
+            }
+            const sleep = (delay_ms) => {
+              return new Promise(resolve => setTimeout(resolve, delay_ms));
+            }
+            const delayedHiding = async () => {
+                // Some other process was interfering with our clicks, so we need to revise it like this.
+                await sleep(10);
+                hideDropdown();
+            }
             parentLi.addEventListener('mouseenter', function (event) {
+                if ($('.navbar-toggler').css('display') !== 'none') {
+                    // The screen is too narrow to use mouse hover.
+                    return;
+                }
                 if (!dropdownUnorderedList.classList.contains('show')) {
                     // Close any other dropdowns
                     var openDropdowns = document.querySelectorAll('.dropdown-menu.show');
@@ -99,7 +111,7 @@ $(document).ready(
                     openDropdowns.forEach(function (openDropdown) {
                         if (dropdownUnorderedList !== openDropdown) {
                             var toggleTarget = openDropdown.previousElementSibling;
-                            if (toggleTarget.classList.contains('clickedOpen')) {
+                            if (toggleTarget.classList.contains('clicked-open')) {
                                 reveal = false;
                             } else {
                                 openDropdown.classList.remove('show');
@@ -118,18 +130,21 @@ $(document).ready(
                     toggle.classList.remove('show');
                     toggle.classList.remove('clicked-open');
                     toggle.removeAttribute('data-bs-popper');
+                    delayedHiding();
                 } else {
                     revealDropdown();
                     toggle.classList.add('clicked-open');
                 }
             });
             parentLi.addEventListener('mouseleave', function (event) {
+                if ($('.navbar-toggler').css('display') !== 'none') {
+                    // The screen is too narrow to use mouse hover.
+                    return;
+                }
                 // https://stackoverflow.com/a/57321303/1495729
-                if (!dropdownUnorderedList.classList.contains('open')
+                if (!dropdownUnorderedList.classList.contains('hover')
                     && !isMouseCloseBelowElement(toggle, event)) {
-                    dropdownUnorderedList.classList.remove('show');
-                    dropdownUnorderedList.removeAttribute('data-bs-popper');
-                    toggle.classList.remove('show');
+                    delayedHiding();
                 }
             });
         });
@@ -138,6 +153,6 @@ $(document).ready(
             hideNav();
         }
 
-        $('a[href^="#"]').on('click', handleFragmentLinkClick);
+        $('a[href^="#"]:not([href="#"])').on('click', handleFragmentLinkClick);
     }
 );

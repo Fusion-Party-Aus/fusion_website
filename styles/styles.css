@@ -14,6 +14,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -231,13 +232,13 @@ ul.dropdown-menu {
 .dropdown-menu-end {
     right: 5px;
 }
-.dropdown-divider {
+.dropdown-divider, hr.divider {
     border-color: var(--fusion-purple);
 }
 .dropdown-divider:hover {
     box-shadow: none;
 }
-.divider:hover {
+.divider:hover, hr.divider {
     box-shadow: none;
 }
 
@@ -315,11 +316,10 @@ header {
 
 .header-container {
     position: relative;
-    min-height: 140px;
+    min-height: 200px;
 }
 
 .header-container img {
-    min-height: 200px;
     /* Our header images are chosen to be 4:1, and we wish for it to be 2.25 × the line height used later. */
     height: calc(1.125 * 0.25 * 100vw);
     max-height: 240px;
@@ -582,7 +582,7 @@ button.bg-aquamarine:hover {
 }
 
 .bg-blue-gray-transparent {
-    background-color: #e9fbfab0;
+    background-color: rgb(228, 243, 242);
 }
 
 .bg-gray-transparent {

@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://fusionparty.space/styles/minified/scrolling.9c622ecb.min.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="https://fusionparty.space/styles/minified/ballots.e5a51d5c.min.css"
+    <link rel="stylesheet" href="https://fusionparty.space/styles/minified/ballots.65fc4ec6.min.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
     <script src="https://www.google.com/recaptcha/api.js?render=6LcnLIMpAAAAAJAdaRaoTD3LhFojEOb_1GYWJXlg"></script>
@@ -46,7 +46,7 @@
 
 <nav id="header-nav" class="w-100 navbar navbar-expand-lg navbar-light bg-glass">
     <!-- use sticky-top to keep it at the top -->
-    <div class="container-fluid">
+    <div class="container-fluid px-2">
         <a class="navbar-brand" href="/"><img class="logo navbar-brand active"
                                               src="https://fusionparty.space/images/solo_colour.svg"
                                               alt="Fusion logo"></a>
@@ -158,8 +158,8 @@
             </div>
         </div>
     </header>
-
-
+</div>
+<div class="container">
     <!-- Vision Section -->
     <div class="mb-4 pb-3 glass">
         <div class="row">
@@ -184,16 +184,11 @@
 </div>
 <div class="w-100 bg-plasma-top container-fluid">
     <div class="my-4 py-4 row">
-        <div class="col-12 col-md-7">
-            <video width="100%" autoplay="" loop="" muted="" playsinline="" class="rounded">
-                <source src="https://fusionparty.space/video/muted_chat_340.webm" type="video/mp4">
-                Your browser must not support the video tag.
-            </video>
-        </div>
+        <div class="col-12 col-md-7" id="video-container"></div>
         <div class="col-12 col-md-4 text-white">
-            <h1 class="h-underline h-purple open-sans massive p-2 bg-blue-green rounded">
+            <h2 class="h-underline h-purple open-sans massive p-2 bg-blue-green rounded">
                 <span><b>A grassroots movement</b></span> <span>with</span>
-                <span><b><i>big ideas</i></b></span></h1>
+                <span><b><i>big ideas</i></b></span></h2>
         </div>
     </div>
 </div>
@@ -280,18 +275,36 @@
             </p>
             <div class="row">
                 <div class="col-4 d-flex justify-content-center w-100">
-                    <button class="w-100 btn btn-info bg-opal glowing-button my-2">Donate $25</button>
+                    <a href="/donate?amount=25" class="w-100 btn btn-info bg-opal glowing-button my-2" role="button">Donate $25</a>
                 </div>
                 <div class="col-4 d-flex justify-content-center w-100">
-                    <button class="w-100 btn btn-info bg-opal glowing-button my-2">Donate $50</button>
+                    <a href="/donate?amount=50" class="w-100 btn btn-info bg-opal glowing-button my-2" role="button">Donate $50</a>
                 </div>
                 <div class="col-4 d-flex justify-content-center">
-                    <button class="w-100 btn btn-info bg-opal glowing-button my-2">Custom</button>
+                    <a href="/donate" class="w-100 btn btn-info bg-opal glowing-button my-2" role="button">Custom</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+  console.log('Looking for video container…');
+  document.addEventListener('DOMContentLoaded', function() {
+    const videoContainer = document.getElementById('video-container');
+    /* NationBuilder is blocking our use of <video> earlier */
+    if (videoContainer) {
+      var videoHtml = `
+        <video width="100%" autoplay="" loop="" muted="" playsinline="" class="rounded">
+            <source src="https://fusionparty.space/video/muted_chat_340.webm" type="video/mp4">
+            Your browser must not support the video tag.
+        </video>
+      `;
+      videoContainer.innerHTML = videoHtml;
+    } else {
+        console.log('Video container not found');
+    }
+  });
+</script>
 
 <div class="container">
     <!-- Newsletter signup -->
@@ -484,10 +497,10 @@
             </div>
         </div>
         <div class="col-12 col-xl-1"></div>
-        <div class="d-lg-none py-2">
+        <div class="d-lg-none py-2 w-100">
             <!-- Looking up at everything -->
             <div class="blob">
-                <img src="/images/discerning_woman.webp"
+                <img src="https://fusionparty.space/images/discerning_woman.webp"
                      class="w-100"/>
             </div>
         </div>
@@ -912,7 +925,7 @@
             <!--div class="col-0 col-lg-1"></div-->
             <div class="col-12 col-md-7 col-lg-12 order-last order-md-5 order-lg-last d-flex justify-content-center">
                 <img class="d-lg-none w-100 mb-3 neon-pink" src="https://fusionparty.space/images%2Flandscape-colour.svg" alt="Fusion logo"/>
-                <img class="d-none d-lg-block w-100 mb-2 neon-pink" src="https://fusionparty.space/images%2Flandscape-colour.svg"
+                <img class="d-none d-lg-block w-100 mb-2 neon-pink" src="images/landscape-white-border-paths.svg"
                      alt="Fusion logo"/>
             </div>
         </div>
@@ -924,17 +937,15 @@
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
-        integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://fusionparty.space/scripts/video_injection.js"></script>
+<!-- jQuery is needed for tilting and for the nav -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- jQuery is needed for tilting and for the nav -->
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"
         integrity="sha512-u1L7Dp3BKUP3gijgSRoMTNxmDl/5o+XOHupwwa7jsI1rMzHrllSLKsGOfqjYl8vrEG+8ghnRPNA/SCltmJCZpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
