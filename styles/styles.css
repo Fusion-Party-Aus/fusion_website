@@ -898,7 +898,7 @@ input.form-control {
 /* todo: charm UI https://codepen.io/TWilson/pen/jOdWqbZ */
 
 .spreadable-container {
-    height: max(300px, 0.5vw);
+    height: max(200px, 0.5vw);
     width: 100%;
     object-fit: cover;
 }
@@ -909,13 +909,14 @@ input.form-control {
     margin: 0 auto;
     transition: all .4s ease;
     left: -18%;
-    top: 20%;
+    top: 33%;
     position: absolute;
     transform: rotate(-20deg);
     z-index: calc(var(--z-body) - 1);
 }
 .spreadable img {
-    max-height: 150px;
+    height: inherit;
+    max-height: 30vw;
 }
 
 .spreadable-container .spreadable:nth-child(2) {
