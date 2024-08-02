@@ -898,7 +898,7 @@ input.form-control {
 /* todo: charm UI https://codepen.io/TWilson/pen/jOdWqbZ */
 
 .spreadable-container {
-    height: max(300px, calc(1.125 * 0.25 * 100vw));
+    height: max(300px, 0.5vw);
     width: 100%;
     object-fit: cover;
 }
