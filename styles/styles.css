@@ -905,7 +905,7 @@ input.form-control {
 
 .spreadable {
     /* The container is only meant to take up from 3/12 (25%) to 8/12 columns (66%). So 3 images as 41% width */
-    width:30%;
+    width:37%;
     margin: 0 auto;
     transition: all .4s ease;
     left: -18%;
