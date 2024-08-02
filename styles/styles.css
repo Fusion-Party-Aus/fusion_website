@@ -169,13 +169,18 @@ figcaption {
     color: var(--bs-secondary-color);
 }
 
-.no-decorate {
+.minor-decoration, .no-decorate {
     color: inherit;
     text-decoration: inherit;
 }
 
-.no-decorate:hover {
+.minor-decoration:hover {
     text-decoration: underline;
+}
+
+.no-decorate:hover {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 nav {
