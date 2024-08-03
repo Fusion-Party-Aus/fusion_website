@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="https://fusionparty.space/styles/minified/ballots.65fc4ec6.min.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="styles/laptop.css">
     <script src="https://www.google.com/recaptcha/api.js?render=6LcnLIMpAAAAAJAdaRaoTD3LhFojEOb_1GYWJXlg"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /-->
@@ -184,7 +185,7 @@
 </div>
 <div class="w-100 bg-plasma-top container-fluid">
     <div class="my-4 py-4 row">
-        <div class="col-12 col-md-7" id="video-container"></div>
+        <div class="col-12 col-md-7 video-placeholder" id="video-big-ideas-container"></div>
         <div class="col-12 col-md-4 text-white">
             <h2 class="h-underline h-purple open-sans massive p-2 bg-blue-green rounded">
                 <span><b>A grassroots movement</b></span> <span>with</span>
@@ -287,24 +288,6 @@
         </div>
     </div>
 </div>
-<script>
-  console.log('Looking for video container…');
-  document.addEventListener('DOMContentLoaded', function() {
-    const videoContainer = document.getElementById('video-container');
-    /* NationBuilder is blocking our use of <video> earlier */
-    if (videoContainer) {
-      var videoHtml = `
-        <video width="100%" autoplay="" loop="" muted="" playsinline="" class="rounded">
-            <source src="https://fusionparty.space/video/muted_chat_340.webm" type="video/mp4">
-            Your browser must not support the video tag.
-        </video>
-      `;
-      videoContainer.innerHTML = videoHtml;
-    } else {
-        console.log('Video container not found');
-    }
-  });
-</script>
 
 <div class="container">
     <!-- Newsletter signup -->
@@ -340,6 +323,50 @@
         </div>
     </div>
 </div>
+<div id="events" class="w-100 bg-plasma-top text-center above">
+    <div class="my-4 py-4 row">
+        <div class="col-12 col-md-7 pr-0">
+            <div class="row">
+                <div class="col-3 col-md-4 text-white">
+                    <h2 class="h-underline h-purple open-sans massive p-2 ml-3 bg-blue-green rounded"><a class="no-decorate" href="/events">Events</a></h2>
+                </div>
+                <div class="col-8 col-md-8 spreadable-container">
+                    <div class="card shadow spreadable">
+                        <div class="card-body p-1">
+                            <a class="no-decorate" href="#events"><img class="mx-auto mb-2" style="object-position: right center;"
+                                                    src="https://fusionparty.space/images/reading_room_350.webp"
+                                                                                            alt="A woman at the Mardi Gras Fair Day"/></a>
+                        </div>
+                    </div>
+                    <div class="card shadow spreadable">
+                        <div class="card-body p-1">
+                            <a class="no-decorate" href="#events"><img class="mx-auto mb-2" style="object-position: left center;"
+                                                    src="https://fusionparty.space/images/post_aston_350.webp" alt="Celebrating the Aston election campaign"/></a>
+                        </div>
+                    </div>
+                    <div class="card shadow spreadable">
+                        <div class="card-body p-1">
+                            <a class="no-decorate" href="#events"><img class="mx-auto mb-2" style="object-position: left center;"
+                                                    src="https://fusionparty.space/images/simon_and_sahar_350.webp"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 col-md-0"></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 pr-md-1 d-flex justify-content-center align-items-center">
+            <div class="macbook">
+              <div class="laptop-screen">
+                <div class="laptop-viewport video-placeholder" id="video-events">
+                </div>
+              </div>
+              <div class="laptop-base"></div>
+              <div class="laptop-notch"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="w-100 container-fluid px-1 px-sm-4">
     <div class="my-4 py-4 row">
         <div class="col-12 col-xl-1"></div>
@@ -937,7 +964,7 @@
 </div>
 
 
-<script src="https://fusionparty.space/scripts/video_injection.js"></script>
+<script src="/scripts/video_injection.js"></script>
 <!-- jQuery is needed for tilting and for the nav -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -952,6 +979,7 @@
 <script defer src="/scripts/nav.js"></script>
 <script defer src="/scripts/underlining.js"></script>
 <script defer src="/scripts/tilting.js"></script>
+<script defer src="/scripts/spreading-cards.js"></script>
 <script src="https://kwesforms.com/v2/kwes-script.js" defer></script>
 </body>
 </html>

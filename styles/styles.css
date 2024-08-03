@@ -14,12 +14,15 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden;
+}
+
+html, body {
+    overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, p {
     /* Avoid things accidentally covering up our text */
-    z-index: var(--z-body) + 2;
+    z-index: calc(var(--z-body) + 2);
 }
 
 .massive {
@@ -166,13 +169,18 @@ figcaption {
     color: var(--bs-secondary-color);
 }
 
-.no-decorate {
+.minor-decoration, .no-decorate {
     color: inherit;
     text-decoration: inherit;
 }
 
-.no-decorate:hover {
+.minor-decoration:hover {
     text-decoration: underline;
+}
+
+.no-decorate:hover {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 nav {
@@ -325,7 +333,7 @@ header {
 
 .header-container img {
     /* Our header images are chosen to be 4:1, and we wish for it to be 2.25 × the line height used later. */
-    height: calc(1.125 * 0.25 * 100vw);
+    height: max(200px, calc(1.125 * 0.25 * 100vw));
     max-height: 240px;
     width: 100%;
     object-fit: cover;
@@ -346,11 +354,22 @@ header h1 {
 }
 
 header .fs-scale {
-    font-size: 4rem;
+    font-size: 3.15rem;
+}
+
+/* These media sizes are based on https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
+@media (min-width: 576px) {
+    header .fs-scale {
+        font-size: 4rem;
+    }
 }
 
 header .fs-scale-3-lines {
     font-size: 2.5rem;
+}
+
+header .fs-scale-extra-long {
+    font-size: calc(min(4rem, max(5vw, 30px)));
 }
 
 h1.nicokaku {
@@ -564,6 +583,18 @@ h5.h-underline {
     background-position: center; /* Center the background image */
 }
 
+.bg-plasma-3 {
+    background-image: url('https://fusionparty.space/images/plasma-3.webp');
+    background-size: cover; /* Cover the entire area of the element */
+    background-position: center; /* Center the background image */
+}
+
+.bg-plasma-4 {
+    background-image: url('https://fusionparty.space/images/water-plasma.webp');
+    background-size: cover; /* Cover the entire area of the element */
+    background-position: center; /* Center the background image */
+}
+
 .bg-underwater {
     background-image: url('https://fusionparty.space/images/underwater_blue.webp');
     background-size: cover;
@@ -586,7 +617,7 @@ button.bg-aquamarine:hover {
 }
 
 .bg-blue-gray-transparent {
-    background-color: rgb(228, 243, 242);
+    background-color: #e9fbfab0;
 }
 
 .bg-gray-transparent {
@@ -665,9 +696,137 @@ button.bg-purple, button.bg-purple:hover {
     background-color: transparent;
 }
 
+input.bg-white {
+    background-color: white;
+}
+
+
 input.form-control {
     height: calc(3.5rem + calc(var(--bs-border-width) * 2));
 }
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts > div {
+    position: relative;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts input[type="radio"] {
+    display: none;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts label.radio {
+    border-radius: 2px;
+    /* todo: these labels should be more like the primary hover */
+    background-color: rgba(0, 60, 113, 0.17);
+
+    display: inline-block;
+    min-width: 80px;
+    padding: 15px 5px;
+
+    font-size: 19px;
+    text-align: center;
+
+    margin: 5px 5px 5px 0;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts .custom-control-label::before {
+    content: none;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts .custom-control-label::after {
+    content: none;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts .custom-control {
+    padding-left: 0;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts .custom-control-inline {
+    margin-right: 0;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before  {
+    background-color: #a5a5a5;
+    color: inherit;
+    border-color: #a5a5a5;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 .2rem rgba(230, 0, 255, 0.25)
+}
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: #e380ff
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: #ecb3ff;
+    border-color: #ecb3ff
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts input[type="radio"] + label {
+    background-color: #edcff6;
+    color: inherit;
+    border-color: #d249d2;
+    border-radius: 0.375rem;
+}
+
+.donation_form .donation-v2-amounts input[type="radio"]:hover + label {
+    background-color: #ec60ec;
+    color: white;
+    cursor: pointer;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts input[type="radio"]:checked + label {
+    background-color: #e05be0;
+    color: white;
+    border-color: #d249d2;
+}
+
+/* See glowing-button.css */
+.page-pages-show-donation-v2-wide .donation-v2-amounts input[type="radio"]:checked + label {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.page-pages-show-donation-v2-wide .donation-v2-amounts input[type="radio"]:checked + label:before {
+  content: "";
+  background: linear-gradient(
+    90deg,
+    #fff,
+    transparent,
+		 transparent,
+		#fff
+
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(8px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-animation 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.page-pages-show-donation-v2-wide .progress-bar {
+    background-color: #ff7fff;
+}
+
+/*.page-pages-show-donation-v2-wide .submit-button {
+    background-color: #1A73E8;
+    border-color: #1A73E8;
+}*/
+
 
 
 @keyframes jumbo {
@@ -742,3 +901,47 @@ input.form-control {
 /* todo: turbulence: https://codepen.io/cobra_winfrey/pen/eYOXOdB */
 
 /* todo: charm UI https://codepen.io/TWilson/pen/jOdWqbZ */
+
+.spreadable-container {
+    height: max(200px, 0.5vw);
+    width: 100%;
+    object-fit: cover;
+}
+
+.spreadable {
+    /* The container is only meant to take up from 3/12 (25%) to 8/12 columns (66%). So 3 images as 41% width */
+    width:37%;
+    margin: 0 auto;
+    transition: all .4s ease;
+    left: -18%;
+    top: 33%;
+    position: absolute;
+    transform: rotate(-20deg);
+    z-index: calc(var(--z-body) - 1);
+}
+.spreadable img {
+    height: inherit;
+    max-height: 30vw;
+}
+
+.spreadable-container .spreadable:nth-child(2) {
+    left: 9%;
+    transform: rotate(-15deg);
+}
+.spreadable-container .spreadable:nth-child(3) {
+    left: 12%;
+    transform: rotate(-11deg);
+}
+
+/* This works with glowing buttons */
+.animation-sync div:nth-child(1) a::before {
+  animation-delay: 3s;
+}
+
+.animation-sync div:nth-child(2) a::before {
+  animation-delay: 2s;
+}
+
+.animation-sync div:nth-child(3) a::before {
+  animation-delay: 0s;
+}
