@@ -24,4 +24,6 @@ credentials.env
 
 # Build artifacts
 styles/minified/
+scripts/minified/
+package-lock.json
  
