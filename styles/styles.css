@@ -935,7 +935,7 @@ input.form-control {
 
 /* This works with glowing buttons */
 .animation-sync div:nth-child(1) a::before {
-  animation-delay: 3.5s;
+  animation-delay: 3s;
 }
 
 .animation-sync div:nth-child(2) a::before {
