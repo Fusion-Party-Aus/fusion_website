@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+        // Our styles will not apply any underlining animations on mobile, as Google thinks it's delaying the largest
+        // contentful paint 😿
+        return;
+    }
+
     var observer = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
