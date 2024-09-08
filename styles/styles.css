@@ -602,7 +602,12 @@ h5.h-underline {
     background-position: center;
 }
 .bg-coral {
-    background-image: url('https://fusionparty.space/images/coral_reef.webp');
+    /*background-image: url('https://fusionparty.space/images/coral_reef.webp');*/
+    background-image: url('/images/coral_background_2.png');
+    /*background-image: url('/images/daintree_coast.jpg'); too busy */
+    /*background-image: url('/images/coral_aerial.jpg');*/
+    /*background-image: url('/images/coral_coast_cropped3.png');*/
+    /*background-image: url('/images/coral_coast.png');*/
     background-size: cover;
     background-position: center;
     overflow: hidden;
