@@ -1,5 +1,6 @@
 :root {
     --fusion-aquamarine: #5effd8;
+    --aquamarine-transparent: rgba(138, 238, 216, 0.24);
     --fusion-pink: #ff7fff;
     --fusion-blue: #5facff;
     --fusion-purple: #c34df1;
@@ -648,7 +649,7 @@ button.bg-aquamarine:hover {
 }
 
 .bg-aquamarine-transparent {
-    background-color: rgba(138, 238, 216, 0.24);
+    background-color: var(--aquamarine-transparent);
     margin: 0;
     padding: 0;
     box-shadow: 0 4px 15px 0 rgba(31, 38, 135, 0.1);
@@ -744,6 +745,12 @@ input.bg-white {
 
 input.form-control {
     height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+}
+
+blockquote {
+    background-color: var(--aquamarine-transparent);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 0.25rem;
 }
 
 .page-pages-show-donation-v2-wide .donation-v2-amounts > div {
