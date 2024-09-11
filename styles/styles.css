@@ -531,6 +531,7 @@ h2.inter {
     transition: width var(--underlining-duration) ease-in;
 }
 
+
 .h-underline-animate::after {
     width: 100%; /* Full underline */
 }
@@ -920,7 +921,7 @@ input.form-control {
     top: 33%;
     position: absolute;
     transform: rotate(-20deg);
-    z-index: calc(var(--z-body) - 1);
+    z-index: calc(var(--z-body) + 1);  /* In front of ballot, but behind headings */
 }
 .spreadable img {
     height: inherit;
