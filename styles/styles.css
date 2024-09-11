@@ -616,7 +616,9 @@ h5.h-underline {
 /* Add padding to the gallery */
 .gallery {
     max-height: 30vh;
+    max-width: 1500px;
 }
+
 
 .gallery-height {
     max-height: 28vh;
