@@ -10,7 +10,7 @@
           integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="https://fusionparty.space/styles/minified/styles.809eabe9.min.css"
+    <link rel="stylesheet" href="/styles/styles.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://fusionparty.space/styles/minified/blob.af5f889d.min.css"
@@ -32,83 +32,88 @@
 <body class="bg-transparent bg-viewport text-gray-900 relative"
       data-bs-spy="scroll" data-bs-target="#toc">
 <nav id="header-nav" class="w-100 navbar navbar-expand-lg navbar-light bg-glass">
-    <!-- use sticky-top to keep it at the top -->
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img class="logo navbar-brand active" src="https://fusionparty.space/images/solo_colour.svg"
+    <!-- todo: use the variables from NationBuilder -->
+    <div class="container-fluid px-3">
+        <a class="navbar-brand" href="/"><img class="logo navbar-brand active"
+                                              src="https://fusionparty.space/images/solo_colour.svg"
                                               alt="Fusion logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-left">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0 nav-left">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                       data-toggle="dropdown" aria-expanded="false">Policy</a>
                     <ul class="dropdown-menu" aria-labelledby="policyDropdown">
-                        <li><a class="dropdown-item" href="/policy/policy_overview.html">Policy Overview</a></li>
+                        <li><a class="dropdown-item" href="/policy">Policy Overview</a></li>
                         <li class="divider">
                             <hr class="dropdown-divider my-0">
                         </li>
-                        <li><a class="dropdown-item" href="/policy/climate_rescue.html">Climate Rescue</a></li>
-                        <li><a class="dropdown-item" href="/policy/future_focused.html">Future Focused</a></li>
-                        <li><a class="dropdown-item" href="/policy/education_for_life.html">Education for Life</a></li>
-                        <li><a class="dropdown-item" href="/policy/ethical_governance.html">Ethical Governance</a></li>
-                        <li><a class="dropdown-item" href="/policy/fair_inclusive_society.html">Fair + Inclusive
+                        <li><a class="dropdown-item" href="climate_rescue">Climate Rescue</a></li>
+                        <li><a class="dropdown-item" href="/future_focused">Future Focused</a></li>
+                        <li><a class="dropdown-item" href="/education_for_life">Education for Life</a></li>
+                        <li><a class="dropdown-item" href="/ethical_governance">Ethical Governance</a></li>
+                        <li><a class="dropdown-item" href="/fair_inclusive_society">Fair + Inclusive
                             Society</a></li>
-                        <li><a class="dropdown-item" href="/policy/individual_freedoms.html">Individual Freedoms</a>
+                        <li><a class="dropdown-item" href="/individual_freedoms">Individual Freedoms</a>
                         </li>
-                        <li><a class="dropdown-item" href="/policy/ecological_restoration.html">Ecological
+                        <li><a class="dropdown-item" href="/ecological_restoration">Ecological
                             Restoration</a></li>
-                        <li><a class="dropdown-item" href="/policy/civil_digital_liberties.html">Civil + Digital
+                        <li><a class="dropdown-item" href="/civil_digital_liberties">Civil + Digital
                             Liberties</a></li>
-                        <li><a class="dropdown-item" href="/policy/secular_humanism.html">Secular Humanism</a></li>
-                        <li><a class="dropdown-item" href="/policy/fair_foreign_policy.html">Fair Foreign Policy</a>
+                        <li><a class="dropdown-item" href="/secular_humanism">Secular Humanism</a></li>
+                        <li><a class="dropdown-item" href="/fair_foreign_policy">Fair Foreign Policy</a>
                         </li>
-                        <li><a class="dropdown-item" href="/policy/policy_intake.html">Policy Intake Form</a></li>
-                        <li><a class="dropdown-item" href="/policy/policy_faq.html">Other positions and policy FAQ</a>
+                        <li><a class="dropdown-item" href="/policy_intake">Policy Intake Form</a></li>
+                        <li><a class="dropdown-item" href="/policy_faq">Other positions and policy FAQ</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">About</a>
-                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown" data-bs-popper="static">
+                       data-toggle="dropdown" aria-expanded="false">About</a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown" data-popper="static">
                         <li><a class="dropdown-item" href="/our_party">Our Party</a></li>
+                        <li><a class="dropdown-item" href="/our_values">Values</a></li>
+                        <li><a class="dropdown-item" href="/candidates">Candidates</a></li>
                         <li><a class="dropdown-item" href="/live">Livestreams</a></li>
                         <li><a class="dropdown-item" href="/contact">Contact</a></li>
                         <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
-                        <li><a class="dropdown-item" href="/store">store</a></li>
+                        <li><a class="dropdown-item" href="/store">Merch</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">News</a>
-                    <ul class="dropdown-menu" aria-labelledby="newsDropdown" data-bs-popper="static">
+                       data-toggle="dropdown" aria-expanded="false">News</a>
+                    <ul class="dropdown-menu" aria-labelledby="newsDropdown" data-popper="static">
                         <li><a class="dropdown-item" href="/blog">Blog</a></li>
                         <li><a class="dropdown-item" href="/submissions_and_reports">Submissions and Reports</a></li>
+                        <li><a class="dropdown-item" href="/press_signup">Press</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Events</a>
+                    <a class="nav-link" href="/events">Events</a>
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 nav-right justify-content-end">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="involvedDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Get Involved</a>
-                    <ul class="dropdown-menu dropdown-menu-end ms-auto" aria-labelledby="involvedDropdown"
-                        data-bs-popper="static">
+                       data-toggle="dropdown" aria-expanded="false">Get Involved</a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="involvedDropdown"
+                        data-popper="static">
                         <li><a href="/volunteer" class="dropdown-item">Volunteer</a></li>
                         <li><a href="/join" class="dropdown-item">Join</a></li>
                         <li><a href="/donate" class="dropdown-item">Donate</a></li>
-                        <li><a href="#" class="dropdown-item">Give Feedback</a></li>
+                        <li><a href="https://www.fusionparty.org.au/discord" class="dropdown-item">Discord</a></li>
+                        <!--li><a href="/feedback" class="dropdown-item">Give Feedback</a></li-->
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">👤</a>
-                    <ul class="dropdown-menu dropdown-menu-end ms-auto" data-bs-popper="static"
+                       data-toggle="dropdown" aria-expanded="false">👤</a>
+                    <ul class="dropdown-menu dropdown-menu-right" data-popper="static"
                         aria-labelledby="profileDropdown">
                         <li><a href="#" class="dropdown-item">Log in</a></li>
                         <li><a href="#" class="dropdown-item">Register</a></li>
