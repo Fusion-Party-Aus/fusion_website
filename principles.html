@@ -6,9 +6,10 @@
     <title>Fusion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+          integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/styles/styles.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
@@ -29,37 +30,37 @@
 </head>
 <style>
 
-.panel-default>.panel-heading {
-  color: #333;
-  background-color: #fff;
-  border-color: #e4e5e7;
-  padding: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+    .panel-default > .panel-heading {
+        color: #333;
+        background-color: #fff;
+        border-color: #e4e5e7;
+        padding: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
-.panel-default>.panel-heading a {
-  display: block;
-  padding: 10px 15px;
-}
+    .panel-default > .panel-heading a {
+        display: block;
+        padding: 10px 15px;
+    }
 
-.panel-default>.panel-heading a:after {
-  content: "";
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  float: right;
-  transition: transform .25s linear;
-  -webkit-transition: -webkit-transform .25s linear;
-}
+    .panel-default > .panel-heading a:after {
+        content: "";
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        float: right;
+        transition: transform .25s linear;
+        -webkit-transition: -webkit-transform .25s linear;
+    }
 </style>
 <!-- Bootstrap will be spying on the scrolling within the body -->
 <body class="bg-transparent bg-viewport text-gray-900 relative"
@@ -162,11 +163,11 @@
         <header class="m-0 w-100 position-relative" style="padding-top:60px">
             <div class="header-container">
                 <img class="mt-0 mt-lg-2"
-                 src="https://fusionparty.space/images/kangaroo_future_scenery.webp"
-                 srcset="https://fusionparty.space/images/kangaroo_future_scenery_200.webp 725w,
+                     src="https://fusionparty.space/images/kangaroo_future_scenery.webp"
+                     srcset="https://fusionparty.space/images/kangaroo_future_scenery_200.webp 725w,
                          https://fusionparty.space/images/kangaroo_future_scenery.webp 2176w"
-                 sizes="(max-width: 725px) 725px, 2176px"
-                 alt="Kangaroos in a futuristic setting">
+                     sizes="(max-width: 725px) 725px, 2176px"
+                     alt="Kangaroos in a futuristic setting">
                 <div class="header-content d-flex align-items-center">
                     <h1 data-toc-skip=""
                         class="bg-gray-transparent align-items-left h-underline h-pink inter fw-700 ml-3 ml-sm-4 ml-md-5 mt-3 mt-lg-4 p-1 fs-scale h-underline-animate">
@@ -185,62 +186,71 @@
                 <div class="accordion-option">
                     <h3 class="title">Lorem Ipsum</h3>
                     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
-                  </div>
-                  <div class="clearfix"></div>
-                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
-                      <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Collapsible Group Item #1
-                        </a>
-                      </h4>
-                      </div>
-                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                          on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+                <div class="clearfix"></div>
+
+                <!-- Row for Accordion Titles (Tabs) -->
+                <div class="row" role="tablist" id="accordion" aria-multiselectable="false">
+                    <div class="col">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" data-target="#collapseOne" aria-expanded="true"
+                                   aria-controls="collapseOne">
+                                    Collapsible Group Item #1
+                                </a>
+                            </h4>
                         </div>
-                      </div>
                     </div>
-                    <div class="panel panel-default">
-                      <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                          Collapsible Group Item #2
-                        </a>
-                      </h4>
-                      </div>
-                      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                          on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <div class="col">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" data-target="#collapseTwo" aria-expanded="false"
+                                   aria-controls="collapseTwo">
+                                    Collapsible Group Item #2
+                                </a>
+                            </h4>
                         </div>
-                      </div>
                     </div>
-                    <div class="panel panel-default">
-                      <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                          Collapsible Group Item #3
-                        </a>
-                      </h4>
-                      </div>
-                      <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-                        <div class="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                          on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <div class="col">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" data-target="#collapseThree" aria-expanded="false"
+                                   aria-controls="collapseThree">
+                                    Collapsible Group Item #3
+                                </a>
+                            </h4>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="row mt-3">
+                    <div class="col">
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                Content for Item #1.
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                Content for Item #2.
+                            </div>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                Content for Item #3.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
-        <div class="d-none d-lg-block col-lg-2"></div>
     </div>
+    <div class="d-none d-lg-block col-lg-2"></div>
 </div>
 <div class="container-fluid py-4 bg-pink-glass" id="footer-container">
     <footer class="m-0 m-sm-3">
@@ -367,35 +377,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
         integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"
+        integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- jQuery is needed for tilting, for the nav, and for the table of contents -->
 <script>
-$(document).ready(function() {
+  document.querySelectorAll('.panel-title a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
 
-  $(".toggle-accordion").on("click", function() {
-    var accordionId = $(this).attr("accordion-id"),
-      numPanelOpen = $(accordionId + ' .collapse.in').length;
+      // Hide all content sections
+      document.querySelectorAll('.panel-collapse').forEach(function(content) {
+        content.classList.remove('show');
+      });
 
-    $(this).toggleClass("active");
-
-    if (numPanelOpen == 0) {
-      openAllPanels(accordionId);
-    } else {
-      closeAllPanels(accordionId);
-    }
-  })
-
-  openAllPanels = function(aId) {
-    console.log("setAllPanelOpen");
-    $(aId + ' .panel-collapse:not(".in")').collapse('show');
-  }
-  closeAllPanels = function(aId) {
-    console.log("setAllPanelclose");
-    $(aId + ' .panel-collapse.in').collapse('hide');
-  }
-
-});
+      // Show the selected content section
+      const targetId = link.getAttribute('data-target');
+      document.querySelector(targetId).classList.add('show');
+    });
+  });
 </script>
+
 <script defer src="/scripts/underlining.js"></script>
 <!-- https://afeld.github.io/bootstrap-toc/ -->
 <script defer src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js"></script>
