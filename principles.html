@@ -29,23 +29,40 @@
 
 </head>
 <style>
+:root {
+    --panel-background-color: whitesmoke;
+    --panel-small-border-radius: 2px;
+    --panel-large-border-radius: 8px;
+}
+
+.panel-row {
+    margin-left: 0;
+    margin-right: 0;
+    column-gap: 10px;
+}
 .panel-heading {
     color: #007bff;
-    background-color: #f8f9fa; /* Light background color */
+    background-color: var(--panel-background-color);
     border: 1px solid #e4e5e7;
     padding: 0;
     text-align: center;
-    border-radius: 8px 8px 0 0; /* Rounded top corners for tab effect */
+    border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) 0 0; /* Rounded top corners for tab effect */
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
 }
 
+.panel-title {
+    border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) 0 0;
+    margin-bottom: 0;
+}
+
 .panel-heading a {
     display: block;
-    padding: 15px;
+    padding: 15px 15px 25px 15px;
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
+    border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) 0 0;
 }
 
 .panel-heading a.active,
@@ -65,14 +82,21 @@
     border: 1px solid #e4e5e7;
     border-top: none; /* Remove top border to connect with tab */
     padding: 15px;
-    background-color: #ffffff;
+    background-color: var(--panel-background-color);
 }
 
 /* Active tab styling */
 .panel-heading a.active {
-    background-color: #007bff;
+    background-color: lightpink;
     color: #ffffff;
     border-bottom: 1px solid #ffffff; /* Seamlessly connects to content */
+}
+
+.panel-content {
+    width: 100%;
+    background-color: whitesmoke;
+    border-bottom-right-radius: var(--panel-large-border-radius);
+    border-bottom-left-radius: var(--panel-large-border-radius);
 }
 
 /* Layout adjustments for tabs */
@@ -211,9 +235,10 @@
                 </div>
                 <div class="clearfix"></div>
 
-                <!-- Row for Accordion Titles (Tabs) -->
-                <div class="row" role="tablist" id="accordion" aria-multiselectable="false">
-                    <div class="col">
+                <div class="panel-container">
+                    <!-- Row for Accordion Titles (Tabs) -->
+                    <div class="row panel-row" role="tablist" id="accordion" aria-multiselectable="false">
+                    <div class="col pl-0">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
                                 <a href="javascript:void(0)" data-target="#collapseOne" aria-expanded="true"
@@ -233,7 +258,7 @@
                             </h4>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col pr-0">
                         <div class="panel-heading" role="tab" id="headingThree">
                             <h4 class="panel-title">
                                 <a href="javascript:void(0)" data-target="#collapseThree" aria-expanded="false"
@@ -245,9 +270,8 @@
                     </div>
                 </div>
 
-                <!-- Content Area -->
-                <div class="row mt-3">
-                    <div class="col">
+                    <div class="row panel-row">
+                    <div class="panel-content">
                         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
                              aria-labelledby="headingOne">
                             <div class="panel-body">
@@ -268,6 +292,8 @@
                         </div>
                     </div>
                 </div>
+                </div>
+
             </div>
 
         </div>
