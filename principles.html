@@ -28,102 +28,6 @@
     />
 
 </head>
-<style>
-:root {
-    --panel-background-color: #f1f1f1;
-    --panel-small-border-radius: 2px;
-    --panel-large-border-radius: 8px;
-}
-
-.panel-row {
-    margin-left: 0;
-    margin-right: 0;
-    column-gap: 10px;
-}
-.panel-heading {
-    color: #007bff;
-    background-color: var(--panel-background-color);
-    border: 1px solid #e4e5e7;
-    padding: 0;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
-}
-
-.panel-title {
-    margin-bottom: 0;
-}
-
-.panel-heading a {
-    display: block;
-    padding: 15px 15px 25px 15px;
-    color: #808080;
-    text-decoration: none;
-}
-
-.panel-heading, .panel-title, .panel-title a {
-    border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) var(--panel-large-border-radius); --var(--panel-large-border-radius);
-    transition: border-radius 0.1s ease-in;
-}
-
-.opened {
-    .panel-heading, .panel-title, .panel-title a {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-}
-
-.panel-heading:hover {
-    border-color: white;
-}
-
-.panel-heading a:hover {
-    color: white;
-    background-color: #c5cdd5;
-    border-bottom: none; /* Remove bottom border to visually connect to content */
-}
-
-.panel-heading a:after {
-    /* Remove any existing icon styles */
-    content: "";
-}
-
-/* Style for the panel content */
-.panel-collapse {
-    border: 1px solid #f8f8f8;
-    border-top: none; /* Remove top border to connect with tab */
-    padding: 15px;
-    background-color: var(--panel-background-color);
-}
-
-/* Active tab styling */
-.active .panel-heading {
-    background-color: #efefef;
-    color: #ffffff;
-    box-shadow: 4px -2px 15px 0 rgba(31, 38, 135, 0.1);
-    border-bottom: none;
-}
-
-.active a {
-    color: black;
-}
-
-.panel-content {
-    width: 100%;
-    background-color: whitesmoke;
-    box-shadow: 4px -2px 15px 0 rgba(31, 38, 135, 0.1);
-}
-
-/* Layout adjustments for tabs */
-#accordion .col {
-    padding: 0 5px;
-}
-
-.row[role="tablist"] {
-    margin-bottom: -1px; /* Prevents margin between tab row and content */
-}
-
-</style>
 <!-- Bootstrap will be spying on the scrolling within the body -->
 <body class="bg-transparent bg-viewport text-gray-900 relative"
       data-bs-spy="scroll" data-bs-target="#toc">
@@ -245,40 +149,38 @@
         </div>
         <div class="col-12 col-md-9 col-lg-8">
             <div class="container">
-                <div class="accordion-option">
-                    <h3 class="title">Lorem Ipsum</h3>
-                    <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
-                </div>
-                <div class="clearfix"></div>
-
+                <h3 class="h-underline h-pink mb-2" id="lorem-ipsum1">Lorem Ipsum</h3>
+                <p>
+                    Chatting about this issue has so many routes we could go down:
+                </p>
                 <div class="panel-container">
                     <!-- Row for Accordion Titles (Tabs) -->
-                    <div class="row panel-row" role="tablist" id="accordion" aria-multiselectable="false">
+                    <div class="row panel-row" role="tablist" aria-multiselectable="false">
                     <div class="col pl-0">
-                        <div class="panel-heading" role="tab" id="headingOne">
-                            <h4 class="panel-title">
-                                <a href="javascript:void(0)" data-target="#collapseOne" aria-expanded="true"
-                                   aria-controls="collapseOne">
+                        <div class="panel-heading" role="tab" id="headingLoremOne">
+                            <h4 class="panel-title" data-toc-skip>
+                                <a href="javascript:void(0)" data-target="#collapseLoremOne" aria-expanded="true"
+                                   aria-controls="collapseLoremOne">
                                     Collapsible Group Item #1
                                 </a>
                             </h4>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <a href="javascript:void(0)" data-target="#collapseTwo" aria-expanded="false"
-                                   aria-controls="collapseTwo">
+                        <div class="panel-heading" role="tab" id="headingLoremTwo">
+                            <h4 class="panel-title" data-toc-skip>
+                                <a href="javascript:void(0)" data-target="#collapseLoremTwo" aria-expanded="false"
+                                   aria-controls="collapseLoremTwo">
                                     Collapsible Group Item #2
                                 </a>
                             </h4>
                         </div>
                     </div>
                     <div class="col pr-0">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a href="javascript:void(0)" data-target="#collapseThree" aria-expanded="false"
-                                   aria-controls="collapseThree">
+                        <div class="panel-heading" role="tab" id="headingLoremThree">
+                            <h4 class="panel-title" data-toc-skip>
+                                <a href="javascript:void(0)" data-target="#collapseLoremThree" aria-expanded="false"
+                                   aria-controls="collapseLoremThree">
                                     Collapsible Group Item #3
                                 </a>
                             </h4>
@@ -288,20 +190,20 @@
 
                     <div class="row panel-row">
                     <div class="panel-content">
-                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
-                             aria-labelledby="headingOne">
+                        <div id="collapseLoremOne" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingLoremOne">
                             <div class="panel-body">
                                 Content for Item #1.
                             </div>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
-                             aria-labelledby="headingTwo">
+                        <div id="collapseLoremTwo" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingLoremTwo">
                             <div class="panel-body">
                                 Content for Item #2.
                             </div>
                         </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
-                             aria-labelledby="headingThree">
+                        <div id="collapseLoremThree" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingLoremThree">
                             <div class="panel-body">
                                 Content for Item #3.
                             </div>
@@ -310,6 +212,68 @@
                 </div>
                 </div>
 
+                <h3 class="h-underline h-pink mb-2" id="lorem-ipsum2">Consectetur Adipiscing Elit</h3>
+                <p>
+                    Moving on from lorem ipsum though, if you really care about consectetur, then consider:
+                </p>
+                <div class="panel-container">
+                    <!-- Row for Accordion Titles (Tabs) -->
+                    <div class="row panel-row" role="tablist" aria-multiselectable="false">
+                    <div class="col pl-0">
+                        <div class="panel-heading" role="tab" id="headingConsecteturOne">
+                            <h4 class="panel-title" data-toc-skip>
+                                <a href="javascript:void(0)" data-target="#collapseConsecteturOne" aria-expanded="true"
+                                   aria-controls="collapseConsecteturOne">
+                                    Collapsible Group Item #1
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="panel-heading" role="tab" id="headingConsecteturTwo">
+                            <h4 class="panel-title" data-toc-skip>
+                                <a href="javascript:void(0)" data-target="#collapseConsecteturTwo" aria-expanded="false"
+                                   aria-controls="collapseConsecteturTwo">
+                                    Collapsible Group Item #2
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col pr-0">
+                        <div class="panel-heading" role="tab" id="headingConsecteturThree">
+                            <h4 class="panel-title" data-toc-skip>
+                                <a href="javascript:void(0)" data-target="#collapseConsecteturThree" aria-expanded="false"
+                                   aria-controls="collapseConsecteturThree">
+                                    Collapsible Group Item #3
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="row panel-row">
+                    <div class="panel-content">
+                        <div id="collapseConsecteturOne" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingConsecteturOne">
+                            <div class="panel-body">
+                                Content for Item #1.
+                            </div>
+                        </div>
+                        <div id="collapseConsecteturTwo" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingConsecteturTwo">
+                            <div class="panel-body">
+                                Content for Item #2.
+                            </div>
+                        </div>
+                        <div id="collapseConsecteturThree" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingConsecteturThree">
+                            <div class="panel-body">
+                                Content for Item #3.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
 
         </div>
@@ -445,55 +409,6 @@
         integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- jQuery is needed for tilting, for the nav, and for the table of contents -->
-<script>
-  document.querySelectorAll('.panel-title a').forEach(function(link) {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-
-      const targetHeading = link.closest('.panel-heading');
-      const collapseAll = !!targetHeading && targetHeading.parentElement.classList.contains('active');
-      console.log(`Collapse all? ${collapseAll}: ${JSON.stringify(targetHeading.parentElement.classList)}`);
-
-      // Hide all content sections
-      const topPanelRow = link.closest('.panel-row');
-      if (topPanelRow) {
-          if (collapseAll) {
-              topPanelRow.classList.remove('opened');
-          } else {
-              topPanelRow.classList.add('opened');
-          }
-          Array.from(topPanelRow.children).forEach(function(child) {
-              // The parent has a col as a child, then a panel-heading
-              child.classList.remove('active');
-          });
-      } else {
-          console.log('Unable to find the parent row for this click');
-      }
-      if (targetHeading) {
-          if (!collapseAll) {
-              targetHeading.parentElement.classList.add('active');
-          }
-      } else {
-          console.error('Unable to find the closest heading for this click');
-      }
-
-      // Show the selected content section
-      const targetId = link.getAttribute('data-target');
-      const target = document.querySelector(targetId);
-      const targetPanelContent = target.closest('.panel-content');
-      if (targetPanelContent) {
-        Array.from(targetPanelContent.children).forEach(function(child) {
-            child.classList.remove('show');
-        });
-      } else {
-          console.log('Unable to find the target row for this click');
-      }
-      if (!collapseAll) {
-          target.classList.add('show');
-      }
-    });
-  });
-</script>
 
 <script defer src="/scripts/underlining.js"></script>
 <!-- https://afeld.github.io/bootstrap-toc/ -->
