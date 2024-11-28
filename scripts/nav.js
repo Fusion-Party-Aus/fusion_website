@@ -158,7 +158,7 @@ $(document).ready(
 );
 
 $(document).ready(function () {
-    document.querySelectorAll('.panel-title a').forEach(function (link) {
+    document.querySelectorAll('.panel-title button').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault();
 
