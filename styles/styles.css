@@ -1004,20 +1004,26 @@ blockquote {
     margin-bottom: 0;
 }
 
-.panel-heading a {
+.panel-heading button {
+    border: none;
     display: block;
     padding: 15px 15px 25px 15px;
     color: #808080;
     text-decoration: none;
+    width: 100%;
 }
 
-.panel-heading, .panel-title, .panel-title a {
+.panel-heading button:focus {
+    outline: none
+}
+
+.panel-heading, .panel-title, .panel-title button {
     border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) var(--panel-large-border-radius); --var(--panel-large-border-radius);
     transition: border-radius 0.1s ease-in;
 }
 
 .opened {
-    .panel-heading, .panel-title, .panel-title a {
+    .panel-heading, .panel-title, .panel-title button {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
@@ -1027,13 +1033,13 @@ blockquote {
     border-color: white;
 }
 
-.panel-heading a:hover {
+.panel-heading button:hover {
     color: white;
     background-color: #c5cdd5;
     border-bottom: none; /* Remove bottom border to visually connect to content */
 }
 
-.panel-heading a:after {
+.panel-heading button:after {
     /* Remove any existing icon styles */
     content: "";
 }
@@ -1054,7 +1060,7 @@ blockquote {
     border-bottom: none;
 }
 
-.active .panel-heading a {
+.active .panel-heading button {
     color: black;
 }
 

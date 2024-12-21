@@ -157,49 +157,54 @@ $(document).ready(
     }
 );
 
-document.querySelectorAll('.panel-title a').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
+$(document).ready(function () {
+    document.querySelectorAll('.panel-title button').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
 
-        const targetHeading = link.closest('.panel-heading');
-        const collapseAll = !!targetHeading && targetHeading.parentElement.classList.contains('active');
+            const targetHeading = link.closest('.panel-heading');
+            const collapseAll = !!targetHeading && targetHeading.parentElement.classList.contains('active');
 
-        // Hide all content sections
-        const topPanelRow = link.closest('.panel-row');
-        if (topPanelRow) {
-            if (collapseAll) {
-                topPanelRow.classList.remove('opened');
+            // Hide all content sections
+            const topPanelRow = link.closest('.panel-row');
+            if (topPanelRow) {
+                if (collapseAll) {
+                    topPanelRow.classList.remove('opened');
+                } else {
+                    topPanelRow.classList.add('opened');
+                }
+                Array.from(topPanelRow.children).forEach(function (child) {
+                    // The parent has a col as a child, then a panel-heading
+                    child.classList.remove('active');
+                });
             } else {
-                topPanelRow.classList.add('opened');
+                console.error('Unable to find the parent row for this click');
             }
-            Array.from(topPanelRow.children).forEach(function (child) {
-                // The parent has a col as a child, then a panel-heading
-                child.classList.remove('active');
-            });
-        } else {
-            console.error('Unable to find the parent row for this click');
-        }
-        if (targetHeading) {
-            if (!collapseAll) {
-                targetHeading.parentElement.classList.add('active');
+            if (targetHeading) {
+                if (!collapseAll) {
+                    targetHeading.parentElement.classList.add('active');
+                }
+            } else {
+                console.error('Unable to find the closest heading for this click');
             }
-        } else {
-            console.error('Unable to find the closest heading for this click');
-        }
 
-        // Show the selected content section
-        const targetId = link.getAttribute('data-target');
-        const target = document.querySelector(targetId);
-        const targetPanelContent = target.closest('.panel-content');
-        if (targetPanelContent) {
-            Array.from(targetPanelContent.children).forEach(function (child) {
-                child.classList.remove('show');
-            });
-        } else {
-            console.error('Unable to find the target row for this click');
-        }
-        if (!collapseAll) {
-            target.classList.add('show');
-        }
+            // Show the selected content section
+            const targetId = link.getAttribute('data-target');
+            const target = document.querySelector(targetId);
+            if (!target) {
+                console.error(`Unable to find element with ID ${targetId}`);
+            }
+            const targetPanelContent = target.closest('.panel-content');
+            if (targetPanelContent) {
+                Array.from(targetPanelContent.children).forEach(function (child) {
+                    child.classList.remove('show');
+                });
+            } else {
+                console.error('Unable to find the target row for this click');
+            }
+            if (!collapseAll) {
+                target.classList.add('show');
+            }
+        });
     });
 });
