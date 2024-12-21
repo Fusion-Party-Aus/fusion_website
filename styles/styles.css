@@ -1013,6 +1013,10 @@ blockquote {
     width: 100%;
 }
 
+.panel-heading button:focus {
+    outline: none
+}
+
 .panel-heading, .panel-title, .panel-title button {
     border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) var(--panel-large-border-radius); --var(--panel-large-border-radius);
     transition: border-radius 0.1s ease-in;
