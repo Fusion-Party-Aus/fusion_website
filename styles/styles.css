@@ -989,8 +989,13 @@ blockquote {
 .panel-row {
     margin-left: 0;
     margin-right: 0;
-    column-gap: 10px;
+    column-gap: 0;
 }
+.panel-row .col {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .panel-heading {
     background-color: var(--panel-background-color);
     border: 1px solid #e4e5e7;
@@ -1007,27 +1012,53 @@ blockquote {
 }
 
 .panel-heading button {
+    position: relative;
+    background: none;
     border: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     height: 100%;
-    color: #808080;
+    color: #646464;
     text-decoration: none;
     width: 100%;
+}
+
+.panel-heading button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, #e1e1e1, transparent);
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: calc(var(--z-body) + 1);  /* Behind the headings */
+}
+
+.panel-heading button.panel-faded::before {
+    opacity: 1;
 }
 
 .panel-heading button:focus {
     outline: none
 }
 
-.panel-heading, .panel-title, .panel-title button {
+.panel-heading, .panel-title, .panel-title button, .panel-title button::before {
     border-radius: var(--panel-large-border-radius) var(--panel-large-border-radius) var(--panel-large-border-radius); --var(--panel-large-border-radius);
     transition: border-radius 0.1s ease-in;
 }
 
+.panel-title h3 {
+    font-size: 12px;
+}
+
 .opened {
-    .panel-heading, .panel-title, .panel-title button {
+    .panel-heading, .panel-title, .panel-title button, .panel-heading button::before {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
@@ -1064,8 +1095,13 @@ blockquote {
     border-bottom: none;
 }
 
-.active .panel-heading button {
+.opened .panel-heading button {
     color: black;
+    transition: color 1s ease-in;
+}
+
+.opened .active .panel-heading button {
+    transition: color 0s linear;
 }
 
 .panel-content {
