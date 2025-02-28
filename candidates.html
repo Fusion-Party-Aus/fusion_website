@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" id="bg-canvas" class="bg-gray-mist">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/styles.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://fusionparty.space/styles/minified/blob.af5f889d.min.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://fusionparty.space/styles/minified/glowing-button.4b8629d4.min.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcnLIMpAAAAAJAdaRaoTD3LhFojEOb_1GYWJXlg"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- https://afeld.github.io/bootstrap-toc/ -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.css"
+    />
+
+</head>
+<!-- Bootstrap will be spying on the scrolling within the body -->
+<body class="bg-transparent bg-viewport text-gray-900 relative"
+      data-bs-spy="scroll" data-bs-target="#toc">
+<nav id="header-nav" class="w-100 navbar navbar-expand-lg navbar-light bg-glass">
+    <!-- todo: use the variables from NationBuilder -->
+    <div class="container-fluid px-3">
+        <a class="navbar-brand" href="/"><img class="logo navbar-brand active"
+                                              src="https://fusionparty.space/images/solo_colour.svg"
+                                              alt="Fusion logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0 nav-left">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
+                       data-toggle="dropdown" aria-expanded="false">Policy</a>
+                    <ul class="dropdown-menu" aria-labelledby="policyDropdown">
+                        <li><a class="dropdown-item" href="/policy">Policy Overview</a></li>
+                        <li class="divider">
+                            <hr class="dropdown-divider my-0">
+                        </li>
+                        <li><a class="dropdown-item" href="climate_rescue">Climate Rescue</a></li>
+                        <li><a class="dropdown-item" href="/future_focused">Future Focused</a></li>
+                        <li><a class="dropdown-item" href="/education_for_life">Education for Life</a></li>
+                        <li><a class="dropdown-item" href="/ethical_governance">Ethical Governance</a></li>
+                        <li><a class="dropdown-item" href="/fair_inclusive_society">Fair + Inclusive
+                            Society</a></li>
+                        <li><a class="dropdown-item" href="/individual_freedoms">Individual Freedoms</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/ecological_restoration">Ecological
+                            Restoration</a></li>
+                        <li><a class="dropdown-item" href="/civil_digital_liberties">Civil + Digital
+                            Liberties</a></li>
+                        <li><a class="dropdown-item" href="/secular_humanism">Secular Humanism</a></li>
+                        <li><a class="dropdown-item" href="/fair_foreign_policy">Fair Foreign Policy</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/policy_intake">Policy Intake Form</a></li>
+                        <li><a class="dropdown-item" href="/policy_faq">Other positions and policy FAQ</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                       data-toggle="dropdown" aria-expanded="false">About</a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown" data-popper="static">
+                        <li><a class="dropdown-item" href="/our_party">Our Party</a></li>
+                        <li><a class="dropdown-item" href="/our_values">Values</a></li>
+                        <li><a class="dropdown-item" href="/candidates">Candidates</a></li>
+                        <li><a class="dropdown-item" href="/live">Livestreams</a></li>
+                        <li><a class="dropdown-item" href="/contact">Contact</a></li>
+                        <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
+                        <li><a class="dropdown-item" href="/store">Merch</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                       data-toggle="dropdown" aria-expanded="false">News</a>
+                    <ul class="dropdown-menu" aria-labelledby="newsDropdown" data-popper="static">
+                        <li><a class="dropdown-item" href="/blog">Blog</a></li>
+                        <li><a class="dropdown-item" href="/submissions_and_reports">Submissions and Reports</a></li>
+                        <li><a class="dropdown-item" href="/press_signup">Press</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/events">Events</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 nav-right justify-content-end">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="involvedDropdown" role="button"
+                       data-toggle="dropdown" aria-expanded="false">Get Involved</a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="involvedDropdown"
+                        data-popper="static">
+                        <li><a href="/volunteer" class="dropdown-item">Volunteer</a></li>
+                        <li><a href="/join" class="dropdown-item">Join</a></li>
+                        <li><a href="/donate" class="dropdown-item">Donate</a></li>
+                        <li><a href="https://www.fusionparty.org.au/discord" class="dropdown-item">Discord</a></li>
+                        <!--li><a href="/feedback" class="dropdown-item">Give Feedback</a></li-->
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                       data-toggle="dropdown" aria-expanded="false">👤</a>
+                    <ul class="dropdown-menu dropdown-menu-right" data-popper="static"
+                        aria-labelledby="profileDropdown">
+                        <li><a href="#" class="dropdown-item">Log in</a></li>
+                        <li><a href="#" class="dropdown-item">Register</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="bg-charm"></div>
+<div class="w-100 pb-4">
+    <div class="row d-block">
+        <header class="m-0 w-100 position-relative" style="padding-top:60px">
+            <div class="header-container">
+                <img class="mt-0 mt-lg-2"
+                 src="https://fusionparty.space/images/kangaroo_future_scenery.webp"
+                 srcset="https://fusionparty.space/images/kangaroo_future_scenery_200.webp 725w,
+                         https://fusionparty.space/images/kangaroo_future_scenery.webp 2176w"
+                 sizes="(max-width: 725px) 725px, 2176px"
+                 alt="Kangaroos in a futuristic setting">
+                <div class="header-content d-flex align-items-center">
+                    <h1 data-toc-skip=""
+                        class="bg-gray-transparent align-items-left h-underline h-pink inter fw-700 ml-3 ml-sm-4 ml-md-5 mt-3 mt-lg-4 p-1 fs-scale h-underline-animate">
+                        <span class="fs-scale">Candidates</span>
+                    </h1>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="row">
+        <div class="d-none d-md-block col-0 col-md-3 col-lg-2 sidebar">
+            <nav id="toc" data-toggle="toc"></nav>
+        </div>
+        <div class="col-12 col-md-9 col-lg-8">
+            <main id="content" role="main" data-spy="scroll" data-target="#toc">
+
+
+<div class="container  content-pages-show-blog">
+
+
+<div id="content">
+
+  <h2 class="h-underline h-pink h-underline-animate" id="endorsed-candidates">Endorsed Candidates</h2>
+  <p>Check out our currently nominated candidates for upcoming elections!<br>
+  <a rel="noopener" href="https://check.aec.gov.au/" target="_blank">Visit the Australian Electoral Commission website</a><span>&nbsp;</span>to check your electorate.</p>
+  <p>Want to see yourself here? It's not too late to nominate 🙋 - <a rel="noopener" href="https://forms.gle/T6WnXEpYSDBrSTGz6">Express your interest here!</a></p>
+  <p>Want to know what the party's voting rules are? Or what mutual obligations the party has with its candidates?<br>
+  - <a rel="noopener" href="https://www.fusionparty.org.au/candidate_expectations">Read more about Candidate Expectations here!</a></p>
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2 mt-2 filters-btn-group" role="group" data-filter-group="state" aria-label="State Selection">
+      <button class="btn btn-secondary active" data-filter="">All</button>
+      <button class="btn btn-secondary" data-filter=".nsw">NSW</button>
+      <button class="btn btn-secondary" data-filter=".qld">QLD</button>
+      <button class="btn btn-secondary" data-filter=".sa">SA</button>
+      <button class="btn btn-secondary" data-filter=".vic">VIC</button>
+      <button class="btn btn-secondary" data-filter=".wa">WA</button>
+    </div>
+    <div class="btn-group mr-2 mt-2 filters-btn-group" role="group" data-filter-group="house" aria-label="House Selection">
+      <button class="btn btn-secondary active" data-filter="">All</button>
+      <button class="btn btn-secondary" data-filter=".upper">Senate</button>
+      <button class="btn btn-secondary" data-filter=".lower">House of Reps</button>
+    </div>
+  </div>
+
+
+  <div class="isogrid" style="position: relative; height: 2063.63px;">
+    <ul class="list-unstyled mb-4" id="blog-page-4215">
+
+
+
+
+
+        <li class="isogrid-item mb-4 pb-4 border-bottom wa lower" id="blog-post-page-5436" style="position: absolute; left: 0px; top: 0px;">
+          <header class="mb-3">
+            <h3 class="mb-1 h-underline h-pink h-underline-animate" id="tian-carrie-wilson-for-churchlands">
+              <a href="/tian_cw_churchlands" class="text-reset">Tian Carrie-Wilson for Churchlands</a></h3>
+
+            <p class="small text-muted">
+              Posted by <span class="linked-signup-name">Miles Whiticker</span> · February 22, 2025  2:11 PM
+
+            </p>
+          </header>
+
+          <div class="mb-2">
+            <p><img style="display: block; margin-left: auto; margin-right: auto;" title="Tian Portrait" src="https://assets.nationbuilder.com/futureparty/pages/5436/attachments/original/1740656987/Screenshot_20250128-143134_14.jpg?1740656987" alt="Tian Portrait With Plant" width="507" height="665"></p>
+<p><span>Tian Carrie</span><span>-Wilson is an Engineer and new technology enthusiast</span><span>. He attended Churchlands SHS and graduated from The University of Western Australia with Bachelor degrees in Mechatronic Engineering and Computer Science</span><span>. He has previously worked in the defence sector and is currently working to decarbonise the resources industry as an Electrical Engineer</span><span>. In his spare time</span><span>, he enjoys surfing</span><span>, rugby</span><span>, bikes of all types and reading about all things new</span><span>. As a homeowner in Innaloo</span><span>, Tian is keen to make a great difference for WA and Churchlands</span><span>. Engineering smart policy</span><span>.</span></p>
+
+              <p class="mt-2"><a href="/tian_cw_churchlands" class="btn btn-info rounded bg-pink p-2">Read more</a></p>
+
+          </div>
+        </li>
+
+
+
+
+
+        <li class="isogrid-item lower vic" id="blog-post-page-5271" style="position: absolute; left: 0px; top: 1058.22px;">
+          <header class="mb-3">
+            <h3 class="mb-1 h-underline h-pink" id="owen-miller-for-wills">
+              <a href="/owen_miller_wills" class="text-reset">Owen Miller for Wills</a></h3>
+
+            <p class="small text-muted">
+              Posted by <span class="linked-signup-name">Owen Miller</span> · January 29, 2025 11:16 PM
+
+            </p>
+          </header>
+
+          <div class="mb-2">
+            <p><img class="w-100" src="https://assets.nationbuilder.com/futureparty/pages/4216/attachments/original/1724677087/g_20240803_142539_cropped_2.png?1724677087" alt=""></p>
+<p><span style="font-weight: 400;">G’day, I’m <a href="/owen_miller">Owen Miller</a>, your Fusion candidate for Wills. As a software engineer and Brunswick local, I’m throwing my hat in the ring because I believe we can build a more empathetic, sustainable and innovative society − but only if we embrace bold ideas and tackle problems at their root cause.</span></p>
+
+              <p class="mt-2"><a href="/owen_miller_wills" class="btn btn-info rounded bg-pink p-2">Read more</a></p>
+
+          </div>
+        </li>
+
+    </ul>
+  </div>
+
+
+
+  <h2 class="h-underline h-pink" id="previous-candidates">Previous Candidates</h2>
+  <p>You can see our history of candidates for past elections here:</p>
+  <p><a rel="noopener" href="https://www.fusionparty.org.au/previous_candidates" target="_blank">Past Candidates in Fusion's History</a></p>
+</div>
+
+</div>
+
+
+
+
+
+
+
+              </main>
+        </div>
+        <div class="d-none d-lg-block col-lg-2"></div>
+    </div>
+</div>
+<div class="container-fluid py-4 bg-pink-glass" id="footer-container">
+    <footer class="m-0 m-sm-3">
+        <div class="row my-3">
+            <div class="col-6 col-sm-3 col-lg-2 pb-2">
+                <ul class="ps-sm-1 ps-md-2 ps-ls-3">
+                    <li><a href="/policy/policy_overview.html">Policy</a></li>
+                    <li><a href="/news">News</a></li>
+                    <li><a href="https://www.redbubble.com/people/fusionpartyaus/shop">Merch</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-2">
+                <ul class="px-0">
+                    <li><a href="/our_party">About Us</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <hr class="d-sm-none">
+            <div class="col-6 col-sm-3 col-lg-2">
+                <ul class="ps-sm-0">
+                    <li><a href="/code_of_conduct">Code of Conduct</a></li>
+                    <li><a href="/constitution">Constitution</a></li>
+                    <li><a href="/privacy_policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-2">
+                <ul class="px-0">
+                    <li><a href="/join">Join</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/donate">Donate</a></li>
+                </ul>
+            </div>
+            <hr class="d-sm-none">
+            <div class="col-12 col-md-5 col-lg-4 text-center order-5 order-md-last order-lg-5 mb-2">
+                <!-- At medium size, this appears after the Fusion logo. Otherwise, it's order 5-->
+                <div class="d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center align-items-lg-start h-100">
+                    <ul class="icons d-flex flex-wrap justify-content-center mb-0 px-0">
+                        <!--https://icons.getbootstrap.com/-->
+                        <li class="mx-3 mb-2">
+                            <a href="https://www.instagram.com/fusionpartyaus/">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram"
+                                     viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://www.facebook.com/FusionPartyAus/">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook"
+                                     viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://www.youtube.com/c/fusionpartyaus">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-youtube"
+                                     viewBox="0 0 16 16">
+                                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://twitter.com/FusionPartyAus">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter-x"
+                                     viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://www.tiktok.com/@fusionpartyaus">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-tiktok"
+                                     viewBox="0 0 16 16">
+                                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://mastodon.au/@FusionPartyAus">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-mastodon"
+                                     viewBox="0 0 16 16">
+                                    <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://www.fusionparty.org.au/discord">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-discord"
+                                     viewBox="0 0 16 16">
+                                    <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mx-3 mb-2">
+                            <a href="https://github.com/Fusion-Party-Aus">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                     class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--div class="col-0 col-lg-1"></div-->
+            <div class="col-12 col-md-7 col-lg-12 order-last order-md-5 order-lg-last d-flex justify-content-center">
+                <img class="d-lg-none w-100 mb-3 neon-pink" src="/images/landscape-colour.svg" alt="Fusion logo"/>
+                <img class="d-none d-lg-block w-100 mb-2 neon-pink" src="/images/landscape-colour.svg"
+                     alt="Fusion logo"/>
+            </div>
+        </div>
+        <div class="my-4 px-4 w-100 text-center">
+            <span class="text-secondary mx-2">Authorised by S. Khalili, FUSION: Science, Pirate, Secular, Climate Emergency, Drummoyne NSW</span>
+        </div>
+
+    </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+        integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- jQuery is needed for tilting, for the nav, and for the table of contents -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="/scripts/underlining.js"></script>
+<!-- https://afeld.github.io/bootstrap-toc/ -->
+<script defer src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js"></script>
+<script defer src="/scripts/nav.js"></script>
+<script src="https://kwesforms.com/v2/kwes-script.js" defer></script>
+</body>
+</html>
