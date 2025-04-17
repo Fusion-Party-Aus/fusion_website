@@ -5,11 +5,13 @@
     --fusion-blue: #5facff;
     --fusion-purple: #c34df1;
     --fusion-gray: #949494;
+    --democracy-first-blue: #1a2a5e;
     --underlining-duration: 0.55s;
     --font-border-width: 4px;
     --z-body: 3;
     --z-nav: 10; /*  Always above any body content, but not modals */
     --container-max-width: 800px;
+  	--containerw-max-width: 1600px;
     --near-top: 300px; /* When should the nav bar always be visible? 5rem. */
     /* The panels are like accordions, except that they're slightly disconnected. */
     --panel-background-color: #f1f1f1;
@@ -21,6 +23,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.democracy-first h1, .democracy-first h2, .democracy-first h3, .democracy-first h4, .democracy-first h5 {
+    font-family: 'Poppins';
+}
+
 html, body {
     overflow-x: clip;
 }
@@ -28,6 +34,7 @@ html, body {
 h1, h2, h3, h4, h5, p {
     /* Avoid things accidentally covering up our text */
     z-index: calc(var(--z-body) + 2);
+    scroll-margin-top: 70px;
 }
 
 .massive {
@@ -92,6 +99,12 @@ h1, h2, h3, h4, h5, p {
     margin-left: auto;
 }
 
+.containerw {
+    max-width: var(--containerw-max-width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .container, .container-fluid {
     z-index: var(--z-body);
     position: relative;
@@ -116,6 +129,10 @@ h1, h2, h3, h4, h5, p {
 
 .w-1600 {
     max-width: 1600px;
+}
+
+.w-800 {
+    max-width: 800px;
 }
 
 .w-inf {
@@ -147,6 +164,10 @@ ol, ul {
     background-color: rgba(211, 248, 244, 0.9);
     border-color: rgba(224, 224, 224, 0.7); /* Light border for the glass edges */
     box-shadow: inset 0 4px 4px rgba(176, 175, 175, 0.8), /* Inner top light */ inset 0 -4px 4px rgba(0, 0, 0, 0.3), /* Inner bottom shadow */ 0 8px 16px rgba(0, 0, 0, 0.3); /* Drop shadow for depth */
+}
+
+.democracy-first .bg-glass-opaque {
+    background-color: rgba(157, 159, 232, 0.53);
 }
 
 .bg-pink-glass {
@@ -377,6 +398,11 @@ header {
     height: 100%;
 }
 
+.democracy-first header {
+    background-color: var(--democracy-first-blue);
+    color: white;
+}
+
 header h1 {
     width: 100%;
     font-size: 4rem;
@@ -385,7 +411,7 @@ header h1 {
 }
 
 header .fs-scale {
-    font-size: 3.15rem;
+    font-size: 2.25rem;
 }
 
 /* These media sizes are based on https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
@@ -396,7 +422,7 @@ header .fs-scale {
 }
 
 header .fs-scale-3-lines {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 }
 
 header .fs-scale-extra-long {
@@ -756,6 +782,10 @@ button.bg-opal:hover {
     background-color: var(--fusion-gray);
 }
 
+.h-red::after {
+    background-color: var(--fusion-red);
+}
+
 .bg-blue {
     background-color: var(--fusion-blue);
 }
@@ -776,6 +806,12 @@ button.bg-opal:hover {
 
 .bg-pink {
     background-color: #ff7fff;
+    color: white;
+    border-color: #d249d2;
+}
+
+.bg-red {
+    background-color: #FF0000;
     color: white;
     border-color: #d249d2;
 }
@@ -826,6 +862,68 @@ blockquote {
     background-color: var(--aquamarine-transparent);
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-radius: 0.25rem;
+}
+
+.badge-row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.badged-heading {
+    justify-content: flex-start;
+    display: flex;
+}
+
+.badge {
+    /* Nationbuilder was making these small and heavy */
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.badge img {
+  height: inherit;  /* Override the scaling of the hero image */
+}
+
+.badge {
+  max-height: 5rem;
+  max-width: 6rem;
+}
+
+.img-small
+{
+	max-height: 2rem;
+  width: 100%;
+}
+
+header .badges {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-left: 2vw;
+}
+
+header .badge-secondary {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  max-width: 9rem;
+  text-transform: uppercase;
+}
+
+
+@media (min-width: 768px) {
+    header .badges {
+        flex-direction: row;
+        align-items: center;
+        margin-left: 0.5vw;
+        margin-right: 2vw;
+    }
+
+    header .badge-secondary {
+      padding: 0.75rem;
+      font-size: 2rem;
+    }
 }
 
 .page-pages-show-donation-v2-wide .donation-v2-amounts > div {
@@ -939,11 +1037,6 @@ blockquote {
     transition: opacity 0.3s ease-in-out;
     border-radius: 10px;
 }
-
-.page-pages-show-donation-v2-wide .progress-bar {
-    background-color: #ff7fff;
-}
-
 
 @keyframes jumbo {
     from {
