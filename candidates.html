@@ -6,9 +6,10 @@
     <title>Fusion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+          integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/styles/styles.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
@@ -18,6 +19,9 @@
     <link rel="stylesheet" href="https://fusionparty.space/styles/minified/glowing-button.4b8629d4.min.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     	crossorigin=""/>
     <script src="https://www.google.com/recaptcha/api.js?render=6LcnLIMpAAAAAJAdaRaoTD3LhFojEOb_1GYWJXlg"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <!-- https://afeld.github.io/bootstrap-toc/ -->
@@ -128,11 +132,11 @@
         <header class="m-0 w-100 position-relative" style="padding-top:60px">
             <div class="header-container">
                 <img class="mt-0 mt-lg-2"
-                 src="https://fusionparty.space/images/kangaroo_future_scenery.webp"
-                 srcset="https://fusionparty.space/images/kangaroo_future_scenery_200.webp 725w,
+                     src="https://fusionparty.space/images/kangaroo_future_scenery.webp"
+                     srcset="https://fusionparty.space/images/kangaroo_future_scenery_200.webp 725w,
                          https://fusionparty.space/images/kangaroo_future_scenery.webp 2176w"
-                 sizes="(max-width: 725px) 725px, 2176px"
-                 alt="Kangaroos in a futuristic setting">
+                     sizes="(max-width: 725px) 725px, 2176px"
+                     alt="Kangaroos in a futuristic setting">
                 <div class="header-content d-flex align-items-center">
                     <h1 data-toc-skip=""
                         class="bg-gray-transparent align-items-left h-underline h-pink inter fw-700 ml-3 ml-sm-4 ml-md-5 mt-3 mt-lg-4 p-1 fs-scale h-underline-animate">
@@ -150,112 +154,835 @@
             <main id="content" role="main" data-spy="scroll" data-target="#toc">
 
 
-<div class="container  content-pages-show-blog">
+                <div class="container  content-pages-show-blog">
 
 
-<div id="content">
-
-  <h2 class="h-underline h-pink h-underline-animate" id="endorsed-candidates">Endorsed Candidates</h2>
-  <p>Check out our currently nominated candidates for upcoming elections!<br>
-  <a rel="noopener" href="https://check.aec.gov.au/" target="_blank">Visit the Australian Electoral Commission website</a><span>&nbsp;</span>to check your electorate.</p>
-  <p>Want to see yourself here? It's not too late to nominate 🙋 - <a rel="noopener" href="https://forms.gle/T6WnXEpYSDBrSTGz6">Express your interest here!</a></p>
-  <p>Want to know what the party's voting rules are? Or what mutual obligations the party has with its candidates?<br>
-  - <a rel="noopener" href="https://www.fusionparty.org.au/candidate_expectations">Read more about Candidate Expectations here!</a></p>
-  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-    <div class="btn-group mr-2 mt-2 filters-btn-group" role="group" data-filter-group="state" aria-label="State Selection">
-      <button class="btn btn-secondary active" data-filter="">All</button>
-      <button class="btn btn-secondary" data-filter=".nsw">NSW</button>
-      <button class="btn btn-secondary" data-filter=".qld">QLD</button>
-      <button class="btn btn-secondary" data-filter=".sa">SA</button>
-      <button class="btn btn-secondary" data-filter=".vic">VIC</button>
-      <button class="btn btn-secondary" data-filter=".wa">WA</button>
-    </div>
-    <div class="btn-group mr-2 mt-2 filters-btn-group" role="group" data-filter-group="house" aria-label="House Selection">
-      <button class="btn btn-secondary active" data-filter="">All</button>
-      <button class="btn btn-secondary" data-filter=".upper">Senate</button>
-      <button class="btn btn-secondary" data-filter=".lower">House of Reps</button>
-    </div>
-  </div>
-
-
-  <div class="isogrid" style="position: relative; height: 1023.51px;">
-    <ul class="list-unstyled mb-4" id="blog-page-4215">
-
-
+                    <div id="content">
+                        <h2 class="h-underline h-pink">Find Your Candidates</h2>
+                        <p>
+                            <a rel="noopener" href="https://check.aec.gov.au/" target="_blank">Visit the Australian Electoral Commission website</a><span>&nbsp;</span>to check your electorate, or use the map:
+                        </p>
+                        <div>
+                            <div class="mb-0" style="max-height: 400px; height:calc(min(350px, 90vh));" id="osm-map">
+                            </div>
+                            <button class="btn btn-secondary p-2 pl-0 m-2" style="position: relative; top:-3.5rem; z-index:1008" id="find-me">Find me</button>
+                        </div>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2 mt-2 filters-btn-group" role="group"
+                                     data-filter-group="state" aria-label="State Selection">
+                                    <button class="btn btn-secondary active" data-filter="">All</button>
+                                    <button class="btn btn-secondary" data-filter=".nsw">NSW</button>
+                                    <button class="btn btn-secondary" data-filter=".qld">QLD</button>
+                                    <button class="btn btn-secondary" data-filter=".sa">SA</button>
+                                    <button class="btn btn-secondary" data-filter=".vic">VIC</button>
+                                    <button class="btn btn-secondary" data-filter=".wa">WA</button>
+                                </div>
+                                <div class="btn-group mr-2 mt-2 filters-btn-group" role="group"
+                                     data-filter-group="house" aria-label="House Selection">
+                                    <button class="btn btn-secondary active" data-filter="">All</button>
+                                    <button class="btn btn-secondary" data-filter=".upper">Senate</button>
+                                    <button class="btn btn-secondary" data-filter=".lower">House of Reps</button>
+                                </div>
+                            </div>
 
 
+                            <div class="isogrid" style="position: relative; height: 7417.41px;">
+                                <ul class="list-unstyled mb-4" id="blog-page-4215">
 
 
+                                    <li class="isogrid-item  nsw upper py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="andrew_potts_nsw" style="position: absolute; left: 0px; top: 0px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/andrew_potts_nsw">
+                                                <img class="rounded w-100" title="Andrew Potts for Senate #2"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6195/attachments/original/1744709168/unnamed_-_Copy_preview.jpg?1744709168"
+                                                     alt="Andrew Potts">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/andrew_potts_nsw" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="andrew-potts-for-senate-2">
+                                                    Andrew Potts for Senate #2
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
 
 
+                                                <span class="badge badge-secondary ml-md-3">NSW</span>
 
 
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
 
-        <li class="isogrid-item  wa lower py-2 py-md-0 row w-100 thumbnail-blog-preview" id="tian_cw_churchlands" style="position: absolute; left: 0px; top: 0px;">
-          <div class="col-6 col-md-8 order-1 order-md-5 my-md-2">
-                <a href="/tian_cw_churchlands">
-                  <img class="rounded w-100" title="Tian Carrie-Wilson for Churchlands" src="https://assets.nationbuilder.com/futureparty/pages/5436/attachments/original/1740793071/thumbnail_Tian.jpg?1740793071" alt="Tian Carrie-Wilson">
-                </a>
-            </div>
-            <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badge-row">
-                <a href="/tian_cw_churchlands" class="uncolored">
-                    <h3 class="mb-1 h-underline h-pink h-underline-animate" id="tian-carrie-wilson-for-churchlands">
-                      Tian Carrie-Wilson for Churchlands
-                    </h3>
-                </a>
-                <span class="badge badge-secondary ml-1">wa</span>
-                <span class="badge badge-secondary ml-1"><img src="/images/democracy_first_logo_mark.svg"/></span>
-            </div>
-        </li>
+                                            </div>
+                                        </div>
+                                    </li>
 
 
+                                    <li class="isogrid-item  upper vic py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="simon_gnieslaw_vic" style="position: absolute; left: 0px; top: 338.5px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/simon_gnieslaw_vic">
+                                                <img class="rounded w-100" title="Simon (Simcha) Gnieslaw for Senate #2"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6002/attachments/original/1744183012/Simon_G_Main_Photo_preview.jpg?1744183012"
+                                                     alt="Simon (Simcha) Gnieslaw">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/simon_gnieslaw_vic" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="simon-simcha-gnieslaw-for-senate-2">
+                                                    Simon (Simcha) Gnieslaw for Senate #2
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
 
 
+                                                <span class="badge badge-secondary ml-md-3">VIC</span>
 
 
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768634/pirate_logo.svg?1743768634"
+                         alt="pirate logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
 
 
+                                    <li class="isogrid-item  nsw lower py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="edward_palmer_macarthur" style="position: absolute; left: 0px; top: 677px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="macarthur">
+                                            <a href="/edward_palmer_macarthur">
+                                                <img class="rounded w-100" title="Edward Palmer for Macarthur"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6163/attachments/original/1744520154/ed_palmer_preview.jpg?1744520154"
+                                                     alt="Edward Palmer">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/edward_palmer_macarthur" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="edward-palmer-for-macarthur">
+                                                    Edward Palmer for Macarthur
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
 
 
-
-        <li class="isogrid-item  lower vic py-2 py-md-0 row w-100 thumbnail-blog-preview" id="owen_miller_wills" style="position: absolute; left: 0px; top: 558.062px;">
-          <div class="col-6 col-md-8 order-1 order-md-5 my-md-2">
-                <a href="/owen_miller_wills">
-                  <img class="rounded w-100" title="Owen Miller for Wills" src="https://assets.nationbuilder.com/futureparty/pages/4216/attachments/original/1724677087/g_20240803_142539_cropped_2.png?1724677087" alt="Owen Miller">
-                </a>
-            </div>
-            <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badge-row">
-                <a href="/owen_miller_wills" class="uncolored">
-                    <h3 class="mb-1 h-underline h-pink h-underline-animate" id="owen-miller-for-wills">
-                      Owen Miller for Wills
-                    </h3>
-                </a>
-                <div>
-                    <span class="badge badge-secondary ml-md-3">vic</span>
-                    <span class="badge badge-secondary ml-1 bg-transparent"><img src="https://fusionparty.space/images/solo_colour.svg"/></span>
-                </div>
-            </div>
-        </li>
-
-    </ul>
-  </div>
+                                                <span class="badge badge-secondary ml-md-3">NSW</span>
 
 
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768636/science_logo.svg?1743768636"
+                         alt="science logo">
+                    </a></span>
 
-  <h2 class="h-underline h-pink" id="previous-candidates">Previous Candidates</h2>
-  <p>You can see our history of candidates for past elections here:</p>
-  <p><a rel="noopener" href="https://www.fusionparty.org.au/previous_candidates" target="_blank">Past Candidates in Fusion's History</a></p>
-</div>
-
-</div>
-
-
-
-
-
+                                            </div>
+                                        </div>
+                                    </li>
 
 
-              </main>
+                                    <li class="isogrid-item  qld lower py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="gina_masterton_ryan" style="position: absolute; left: 0px; top: 1015.5px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="ryan">
+                                            <a href="/gina_masterton_ryan">
+                                                <img class="rounded w-100" title="Gina Masterton for Ryan"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6096/attachments/original/1744367364/IMG_20230426_132151_preview.jpg?1744367364"
+                                                     alt="Gina Masterton">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/gina_masterton_ryan" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-blue h-underline-animate"
+                                                    id="gina-masterton-for-ryan">
+                                                    Gina Masterton for Ryan
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">QLD</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768894/progressives_logo.svg?1743768894"
+                         alt="progressives logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  qld lower py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="rachael_blackwood_brisbane"
+                                        style="position: absolute; left: 0px; top: 1328.03px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="brisbane">
+                                            <a href="/rachael_blackwood_brisbane">
+                                                <img class="rounded w-100" title="Rachael Blackwood for Brisbane"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6030/attachments/original/1743929995/rb_preview.jpg?1743929995"
+                                                     alt="Rachael Blackwood">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/rachael_blackwood_brisbane" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-blue h-underline-animate"
+                                                    id="rachael-blackwood-for-brisbane">
+                                                    Rachael Blackwood for Brisbane
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">QLD</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768894/progressives_logo.svg?1743768894"
+                         alt="progressives logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower sa py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="matthew_mcmillan_adelaide"
+                                        style="position: absolute; left: 0px; top: 1666.53px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="adelaide">
+                                            <a href="/matthew_mcmillan_adelaide">
+                                                <img class="rounded w-100" title="Matthew McMillan for Adelaide"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5833/attachments/original/1743763922/mm_casual_preview.jpg?1743763922"
+                                                     alt="Matthew McMillan">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/matthew_mcmillan_adelaide" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="matthew-mcmillan-for-adelaide">
+                                                    Matthew McMillan for Adelaide
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">SA</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768636/science_logo.svg?1743768636"
+                         alt="science logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  upper qld py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="frank_jordan_qld" style="position: absolute; left: 0px; top: 2005.03px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/frank_jordan_qld">
+                                                <img class="rounded w-100" title="Frank Jordan for Senate #2"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6006/attachments/original/1743761749/Portrait_-_F_Jordan_preview_-_Copy.jpg?1743761749"
+                                                     alt="Frank Jordan">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/frank_jordan_qld" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="frank-jordan-for-senate-2">
+                                                    Frank Jordan for Senate #2
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">QLD</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  vic upper py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="kammy_cordnerhunt_vic"
+                                        style="position: absolute; left: 0px; top: 2343.53px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/kammy_cordnerhunt_vic">
+                                                <img class="rounded w-100" title="Kammy Cordner-Hunt for Senate #1"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/6004/attachments/original/1743761009/Kammy_at_Candidate_Forum_preview.JPG?1743761009"
+                                                     alt="Kammy Cordner-Hunt">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/kammy_cordnerhunt_vic" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="kammy-cordner-hunt-for-senate-1">
+                                                    Kammy Cordner-Hunt for Senate #1
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">VIC</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768636/voteplanet_logo.svg?1743768636"
+                         alt="voteplanet logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower nsw py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="geoffrey_marlow_cowper"
+                                        style="position: absolute; left: 0px; top: 2682.03px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="cowper">
+                                            <a href="/geoffrey_marlow_cowper">
+                                                <img class="rounded w-100" title="Geoffrey Marlow for Cowper"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5868/attachments/original/1743213456/20250328_105909_preview.jpg?1743213456"
+                                                     alt="Geoffrey Marlow">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/geoffrey_marlow_cowper" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="geoffrey-marlow-for-cowper">
+                                                    Geoffrey Marlow for Cowper
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">NSW</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768634/pirate_logo.svg?1743768634"
+                         alt="pirate logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  sa upper py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="drew_wolfendale_sa" style="position: absolute; left: 0px; top: 3020.53px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/drew_wolfendale_sa">
+                                                <img class="rounded w-100" title="Drew Wolfendale for Senate #2"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5832/attachments/original/1743368265/2025_crop_preview.jpg?1743368265"
+                                                     alt="Drew Wolfendale">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/drew_wolfendale_sa" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="drew-wolfendale-for-senate-2">
+                                                    Drew Wolfendale for Senate #2
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">SA</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768636/science_logo.svg?1743768636"
+                         alt="science logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower vic py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="erin_mcgrath_mcewen" style="position: absolute; left: 0px; top: 3359.03px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="mcewen">
+                                            <a href="/erin_mcgrath_mcewen">
+                                                <img class="rounded w-100" title="Erin McGrath for McEwen"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5866/attachments/original/1743212105/Erin_Mcgrath_preview.png?1743212105"
+                                                     alt="Erin McGrath">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/erin_mcgrath_mcewen" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-blue h-underline-animate"
+                                                    id="erin-mcgrath-for-mcewen">
+                                                    Erin McGrath for McEwen
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">VIC</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/democracyfirst_logo.svg?1743768635"
+                         alt="democracyfirst logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  sa lower py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="amelie_hanna_makin" style="position: absolute; left: 0px; top: 3697.53px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="makin">
+                                            <a href="/amelie_hanna_makin">
+                                                <img class="rounded w-100" title="Amelie Hannah for Makin"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5865/attachments/original/1743209939/amelie_preview.png?1743209939"
+                                                     alt="Amelie Hannah">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/amelie_hanna_makin" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-blue h-underline-animate"
+                                                    id="amelie-hannah-for-makin">
+                                                    Amelie Hannah for Makin
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">SA</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/democracyfirst_logo.svg?1743768635"
+                         alt="democracyfirst logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower vic py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="helen_huang_melbourne"
+                                        style="position: absolute; left: 0px; top: 4036.03px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="melbourne">
+                                            <a href="/helen_huang_melbourne">
+                                                <img class="rounded w-100" title="Helen Huang for Melbourne"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5769/attachments/original/1743210010/helen_preview.jpg?1743210010"
+                                                     alt="Helen Huang">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/helen_huang_melbourne" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="helen-huang-for-melbourne">
+                                                    Helen Huang for Melbourne
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">VIC</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower vic py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="andrew_gatley_dunkley"
+                                        style="position: absolute; left: 0px; top: 4374.53px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="dunkley">
+                                            <a href="/andrew_gatley_dunkley">
+                                                <img class="rounded w-100" title="Andrew Gatley for Dunkley"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5767/attachments/original/1743204883/Andrew_1_preview.png?1743204883"
+                                                     alt="Andrew Gatley">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/andrew_gatley_dunkley" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-blue h-underline-animate"
+                                                    id="andrew-gatley-for-dunkley">
+                                                    Andrew Gatley for Dunkley
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">VIC</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/democracyfirst_logo.svg?1743768635"
+                         alt="democracyfirst logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  upper qld py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="chris_simpson_qld" style="position: absolute; left: 0px; top: 4713.03px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/chris_simpson_qld">
+                                                <img class="rounded w-100" title="Chris Simpson for Senate #1"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5768/attachments/original/1742538804/chris_simpson_preview.jpg?1742538804"
+                                                     alt="Chris Simpson">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/chris_simpson_qld" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-blue h-underline-animate"
+                                                    id="chris-simpson-for-senate-1">
+                                                    Chris Simpson for Senate #1
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">QLD</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/democracyfirst_logo.svg?1743768635"
+                         alt="democracyfirst logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  nsw upper py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="miles_whiticker_nsw" style="position: absolute; left: 0px; top: 5051.53px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/miles_whiticker_nsw">
+                                                <img class="rounded w-100" title="Miles Whiticker for Senate #1"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5737/attachments/original/1742445346/miles_preview2.jpg?1742445346"
+                                                     alt="Miles Whiticker">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/miles_whiticker_nsw" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="miles-whiticker-for-senate-1">
+                                                    Miles Whiticker for Senate #1
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">NSW</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768634/pirate_logo.svg?1743768634"
+                         alt="pirate logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  nsw lower py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="john_august_bennelong"
+                                        style="position: absolute; left: 0px; top: 5388.2px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="bennelong">
+                                            <a href="/john_august_bennelong">
+                                                <img class="rounded w-100" title="John August for Bennelong"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5736/attachments/original/1742620917/john_preview.JPG?1742620917"
+                                                     alt="John August">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/john_august_bennelong" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="john-august-for-bennelong">
+                                                    John August for Bennelong
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">NSW</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768634/pirate_logo.svg?1743768634"
+                         alt="pirate logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  sa lower py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="adrien_aloe_hindmarsh"
+                                        style="position: absolute; left: 0px; top: 5726.7px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="hindmarsh">
+                                            <a href="/adrien_aloe_hindmarsh">
+                                                <img class="rounded w-100" title="Adrien Aloe for Hindmarsh"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5735/attachments/original/1742443227/preview_adrien.jpg?1742443227"
+                                                     alt="Adrien Aloe">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/adrien_aloe_hindmarsh" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="adrien-aloe-for-hindmarsh">
+                                                    Adrien Aloe for Hindmarsh
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">SA</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  upper wa py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="tian_carriewilson_wa" style="position: absolute; left: 0px; top: 6065.2px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/tian_carriewilson_wa">
+                                                <img class="rounded w-100" title="Tian Carrie-Wilson for Senate #1"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5734/attachments/original/1742622812/tian_preview.jpg?1742622812"
+                                                     alt="Tian Carrie-Wilson">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/tian_carriewilson_wa" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="tian-carrie-wilson-for-senate-1">
+                                                    Tian Carrie-Wilson for Senate #1
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">WA</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  sa upper py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="imelda_adamsonagars_sa"
+                                        style="position: absolute; left: 0px; top: 6401.38px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;">
+                                            <a href="/imelda_adamsonagars_sa">
+                                                <img class="rounded w-100" title="Imelda Adamson Agars for Senate #1"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5733/attachments/original/1742622630/preview_image_meldy.jpg?1742622630"
+                                                     alt="Imelda Adamson Agars">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/imelda_adamsonagars_sa" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="imelda-adamson-agars-for-senate-1">
+                                                    Imelda Adamson Agars for Senate #1
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">SA</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower nsw py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="brendan_clarke_berowra"
+                                        style="position: absolute; left: 0px; top: 6740.41px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="berowra">
+                                            <a href="/brendan_clarke_berowra">
+                                                <img class="rounded w-100" title="Brendan Clarke for Berowra"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5700/attachments/original/1742623127/brendan_preview.jpg?1742623127"
+                                                     alt="Brendan Clarke">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/brendan_clarke_berowra" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="brendan-clarke-for-berowra">
+                                                    Brendan Clarke for Berowra
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">NSW</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768636/science_logo.svg?1743768636"
+                         alt="science logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="isogrid-item  lower vic py-2 py-md-0 row w-100 thumbnail-blog-preview"
+                                        id="donate_wills_2025" style="position: absolute; left: 0px; top: 7078.91px;">
+                                        <div class="col-6 col-md-8 order-1 order-md-5 my-md-2"
+                                             style="scroll-margin-top:120px;" id="wills">
+                                            <a href="/donate_wills_2025">
+                                                <img class="rounded w-100" title="Owen Miller for Wills"
+                                                     src="https://assets.nationbuilder.com/futureparty/pages/5271/attachments/original/1742623798/owen_preview.png?1742623798"
+                                                     alt="Owen Miller">
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-12 order-5 order-md-1 my-md-2 badged-heading flex-column flex-md-row">
+                                            <a href="/donate_wills_2025" class="uncolored">
+                                                <h3 class="mb-1 h-underline h-pink h-underline-animate"
+                                                    id="owen-miller-for-wills">
+                                                    Owen Miller for Wills
+                                                </h3>
+                                            </a>
+                                            <div class="badges">
+
+
+                                                <span class="badge badge-secondary ml-md-3">VIC</span>
+
+
+                                                <span class="badge badge-small"><a
+                                                        href="https://www.fusionparty.org.au/what_is_a_movement">
+                    <img class="img-small"
+                         src="https://assets.nationbuilder.com/futureparty/pages/4215/attachments/original/1743768635/fusion_logo.svg?1743768635"
+                         alt="fusion logo">
+                    </a></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+
+                            <h2 class="h-underline h-pink" id="previous-candidates">Previous Candidates</h2>
+                            <p>You can see our history of candidates for past elections here:</p>
+                            <p><a rel="noopener" href="https://www.fusionparty.org.au/previous_candidates"
+                                  target="_blank">Past Candidates in Fusion's History</a></p>
+                        </div>
+
+                    </div>
+
+
+            </main>
         </div>
         <div class="d-none d-lg-block col-lg-2"></div>
     </div>
@@ -386,16 +1113,25 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"
+        integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="/scripts/underlining.js"></script>
 <!-- https://afeld.github.io/bootstrap-toc/ -->
 <script defer src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js"></script>
 <script defer src="/scripts/nav.js"></script>
-<script src="https://kwesforms.com/v2/kwes-script.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
-              integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
-              crossorigin="anonymous" referrerpolicy="no-referrer">
-      </script>
-      <script src="/scripts/isotope_filtering.js"></script>
+<script defer src="https://kwesforms.com/v2/kwes-script.js" defer></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+        integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+<script defer src="/scripts/isotope_filtering.js"></script>
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+             crossorigin="">
+     </script>
+    <!-- https://github.com/hayeswise/Leaflet.PointInPolygon -->
+    <script defer src="https://cdn.rawgit.com/hayeswise/Leaflet.PointInPolygon/v1.0.0/wise-leaflet-pip.js"></script>
+<script defer src="scripts/maps.js"></script>
 </body>
 </html>
