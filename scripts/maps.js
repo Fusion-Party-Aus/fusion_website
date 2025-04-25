@@ -32,8 +32,9 @@ const getMarkerOptions = (targetElectorate, normalizedName, name) => {
 
 const STATES = ["nsw", "qld", "sa", "vic", "wa", "nt", "tas"];
 
-const clickStateForTarget = (targetElement) => {
-    const parentClasses = targetElement.parentElement.classList.value.split(" ");
+const clickFiltersForTarget = (targetElement) => {
+    const parentElement = targetElement.parentElement;  // This is an <li>
+    const parentClasses = parentElement.classList.value.split(" ");
     const stateClass = parentClasses.find(className => STATES.includes(className));
     if (stateClass) {
         const stateButton = document.querySelector(`button[data-filter=".${stateClass}"]`);
@@ -53,6 +54,7 @@ function init() {
         setTimeout(() => map.invalidateSize(), 100);
         // Ugly tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            crossOrigin: true,
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         let geoJsonLayer = null;
@@ -88,6 +90,13 @@ function init() {
                     }
                 }
             });
+            if (relevantElectorate) {
+                console.log(`Now that the relevant electorate has been found, we shall apply the state filter`);
+                const targetElement = document.getElementById(relevantElectorate);
+                if (targetElement) {
+                    clickFiltersForTarget(targetElement);
+                }
+            }
             return relevantElectorate;
         }
         // Load and render all features immediately
@@ -112,7 +121,7 @@ function init() {
                                 event.preventDefault(); // Prevent default link behavior
                                 const targetElement = document.getElementById(normalizedName);
                                 if (targetElement) {
-                                    clickStateForTarget(targetElement);
+                                    clickFiltersForTarget(targetElement);
                                     // Wait for isotope filtering to finish readjusting the page.
                                     setTimeout(() => {
                                         targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -124,6 +133,7 @@ function init() {
                 }).addTo(map);
                 // If we already have user location, find their electorate
                 if (userLocation && !userElectorate) {
+                    console.log(`Upon loading the geolocation data, we shall now find the user's electorate`);
                     const found = findUserElectorate(geoJsonLayer, userLocation);
                     if (found) {
                         userElectorate = found;
@@ -139,6 +149,7 @@ function init() {
             L.marker(userLocation).addTo(map);
             // If GeoJSON is already loaded, check location
             if (geoJsonLayer && !userElectorate) {
+                console.log(`Upon being granted geolocation permission, we shall look for the user's electorate`);
                 const found = findUserElectorate(geoJsonLayer, userLocation);
                 if (found) {
                     userElectorate = found;
@@ -163,6 +174,7 @@ function init() {
         else {
             console.error("Location button not found in DOM");
         }
+        geoFindMe();
     });
 }
 document.addEventListener("DOMContentLoaded", init);
